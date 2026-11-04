@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Литературный бланк МЦКО</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+:root{
+  --bg:#f5f6f8; --surface:#ffffff; --surface-2:#f0f2f5; --surface-3:#e8ebf0;
+  --ink:#171a21; --ink-2:#4a5160; --ink-3:#7a8291;
+  --line:#e2e5ea; --line-2:#cdd2da;
+  --accent:#2d55a6; --accent-soft:#e9eef9; --accent-ink:#ffffff;
+  --amber:#9a6410; --amber-soft:#fbf1df;
+  --ok:#1e7f52; --ok-soft:#e5f3eb;
+  --bad:#bd3a32; --bad-soft:#fbeae8;
+  --mark:#fde68a; --mark-ink:#231d10;
+  --shadow-1:0 1px 2px rgba(20,24,33,.05);
+  --shadow-2:0 10px 30px -14px rgba(20,24,33,.22),0 2px 6px rgba(20,24,33,.05);
+  --r:12px; --r-s:8px;
+  --ui:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --text:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --top:60px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --surface:#171a20; --surface-2:#1d2128; --surface-3:#262b34;
+    --ink:#e8eaee; --ink-2:#aeb4bf; --ink-3:#808794;
+    --line:#272c35; --line-2:#363c47;
+    --accent:#8fb0f0; --accent-soft:#1b2640; --accent-ink:#0f1115;
+    --amber:#e2a74c; --amber-soft:#2a2113;
+    --ok:#6ccb98; --ok-soft:#14251c;
+    --bad:#f08a80; --bad-soft:#2c1715;
+    --mark:#b8952f; --mark-ink:#16120a;
+    --shadow-1:0 1px 2px rgba(0,0,0,.4);
+    --shadow-2:0 12px 32px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --surface:#171a20; --surface-2:#1d2128; --surface-3:#262b34;
+  --ink:#e8eaee; --ink-2:#aeb4bf; --ink-3:#808794;
+  --line:#272c35; --line-2:#363c47;
+  --accent:#8fb0f0; --accent-soft:#1b2640; --accent-ink:#0f1115;
+  --amber:#e2a74c; --amber-soft:#2a2113;
+  --ok:#6ccb98; --ok-soft:#14251c;
+  --bad:#f08a80; --bad-soft:#2c1715;
+  --mark:#b8952f; --mark-ink:#16120a;
+  --shadow-1:0 1px 2px rgba(0,0,0,.4);
+  --shadow-2:0 12px 32px -14px rgba(0,0,0,.75),0 2px 6px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+
+/* ---------- база ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;font-family:var(--ui);font-weight:600;line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+::selection{background:var(--accent-soft)}
+.icon{width:18px;height:18px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.faint{color:var(--ink-3)}
+
+/* ---------- верхняя панель ---------- */
+.topbar{position:sticky;top:0;z-index:60;height:var(--top);display:flex;align-items:center;gap:16px;
+  padding:0 clamp(12px,3vw,28px);background:var(--surface);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;margin-right:auto;min-width:0}
+.brand-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;background:var(--accent);color:var(--accent-ink)}
+.brand-mark .icon{width:17px;height:17px}
+.brand-name{font-weight:600;font-size:15px;white-space:nowrap}
+.brand-name small{display:block;font-weight:500;font-size:12px;color:var(--ink-3)}
+.seg{display:flex;padding:3px;gap:2px;background:var(--surface-2);border:1px solid var(--line);border-radius:10px}
+.seg-btn{display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:7px;font-size:14px;font-weight:500;color:var(--ink-2);transition:background .15s,color .15s}
+.seg-btn:hover{color:var(--ink)}
+.seg-btn[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-1)}
+.icon-btn{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;color:var(--ink-2);border:1px solid var(--line)}
+.icon-btn:hover{color:var(--ink);background:var(--surface-2)}
+@media (max-width:560px){.brand-name small{display:none}.seg-btn .lbl{display:none}.seg-btn{padding:6px 10px}.brand-name{font-size:14px}}
+
+main{padding:clamp(16px,3vw,32px) clamp(12px,3vw,28px) 64px}
+.wrap{max-width:1100px;margin:0 auto}
+.narrow{max-width:820px;margin:0 auto}
+.fade{animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ---------- кнопки ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:9px;
+  font-size:14.5px;font-weight:600;background:var(--accent);color:var(--accent-ink);transition:filter .15s,background .15s,transform .05s;white-space:nowrap}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:var(--surface);color:var(--ink);border:1px solid var(--line-2)}
+.btn.secondary:hover{background:var(--surface-2);filter:none}
+.btn.ghost{background:transparent;color:var(--ink-2);height:36px;padding:0 10px}
+.btn.ghost:hover{background:var(--surface-2);color:var(--ink);filter:none}
+.btn.block{width:100%;height:46px;font-size:15.5px}
+.btn.danger{background:var(--bad);color:#fff}
+
+/* ---------- общее: карточки, разделы, чипы ---------- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-1)}
+.sec{margin-top:40px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+.sec-head h2{font-size:19px}
+.sec-head .note{font-size:13.5px;color:var(--ink-3)}
+.chip{display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;font-size:12.5px;font-weight:600;
+  background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.chip.amber{background:var(--amber-soft);color:var(--amber)}
+.chip.accent{background:var(--accent-soft);color:var(--accent)}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.chip.warn{background:var(--amber-soft);color:var(--amber)}
+.chip .icon{width:14px;height:14px}
+
+/* ---------- главная ---------- */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:8px 0 8px}
+.intro .eyebrow{font-size:13px;font-weight:600;color:var(--accent);margin-bottom:8px}
+.intro h1{font-size:clamp(26px,4vw,34px)}
+.intro p{margin-top:8px;color:var(--ink-2);max-width:56ch}
+.stats{display:flex;gap:10px}
+.stat{min-width:104px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.stat b{display:block;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat span{font-size:12.5px;color:var(--ink-3)}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.stats{flex-wrap:wrap}.stat{flex:1}}
+
+.resume{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px;padding:14px 16px;background:var(--amber-soft);
+  border:1px solid var(--line);border-radius:var(--r)}
+.resume .icon{color:var(--amber)}
+.resume p{flex:1;min-width:220px;font-size:14.5px}
+
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.vcard{display:flex;flex-direction:column;gap:10px;text-align:left;padding:18px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--shadow-1);transition:border-color .15s,box-shadow .15s,transform .15s}
+.vcard:hover{border-color:var(--line-2);box-shadow:var(--shadow-2);transform:translateY(-1px)}
+.vcard-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.vcard-top .icon{color:var(--ink-3);transition:transform .15s,color .15s}
+.vcard:hover .vcard-top .icon{color:var(--accent);transform:translateX(2px)}
+.vcard h3{font-size:17px}
+.vcard .works{font-size:14px;color:var(--ink-2);line-height:1.45}
+.vcard-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+.best{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--ink-2)}
+.bar{position:relative;width:64px;height:6px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:99px;background:var(--accent)}
+
+.notice{display:flex;gap:12px;padding:14px 16px;background:var(--surface-2);border-radius:var(--r);font-size:14px;color:var(--ink-2);line-height:1.5}
+.notice .icon{color:var(--ink-3);margin-top:2px}
+.notice b{color:var(--ink)}
+
+.table-wrap{overflow-x:auto}
+table.hist{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.hist th{text-align:left;font-size:12px;font-weight:600;color:var(--ink-3);padding:12px 16px;border-bottom:1px solid var(--line)}
+.hist td{padding:12px 16px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.hist tr:last-child td{border-bottom:0}
+.hist .pct{font-weight:600}
+.empty{padding:28px 16px;text-align:center;color:var(--ink-3);font-size:14.5px}
+
+/* ---------- экран работы ---------- */
+.test{display:grid;grid-template-columns:minmax(0,1fr) 284px;gap:24px;max-width:1180px;margin:0 auto;align-items:start}
+.test-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px}
+.test-head h1{font-size:19px}
+.test-head .works{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+.content{display:flex;flex-direction:column;gap:16px;min-width:0}
+.part-label{display:flex;align-items:center;gap:10px;margin:16px 2px 0;font-size:13px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+.part-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.passage{padding:clamp(18px,3vw,28px)}
+.passage h2{font-size:16px;margin-bottom:14px}
+.passage-text{font-family:var(--text);font-size:17px;line-height:1.78;white-space:pre-wrap;max-width:68ch}
+.passage-text.verse{font-style:italic}
+.passage-hint{display:flex;align-items:center;gap:6px;margin-top:14px;font-size:12.5px;color:var(--ink-3)}
+mark{background:var(--mark);color:var(--mark-ink);border-radius:3px;padding:0 1px;cursor:pointer}
+#hl-btn{position:absolute;z-index:80;display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:8px;
+  background:var(--ink);color:var(--bg);font-size:13px;font-weight:600;box-shadow:var(--shadow-2);transform:translate(-50%,-100%)}
+#hl-btn .icon{width:15px;height:15px}
+
+.q{padding:clamp(16px,2.6vw,24px);scroll-margin-top:calc(var(--top) + 16px)}
+.q-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:16px}
+.q-num{display:grid;place-items:center;flex:none;min-width:34px;height:34px;padding:0 6px;border-radius:9px;background:var(--surface-2);
+  font-weight:600;font-size:14px;font-variant-numeric:tabular-nums}
+.q.done .q-num{background:var(--accent-soft);color:var(--accent)}
+.q-title{flex:1;font-size:16px;line-height:1.5;padding-top:5px}
+.q-title strong{font-weight:600}
+.q-head .chip{margin-top:5px}
+.q-foot{display:flex;align-items:center;gap:10px;margin-top:14px}
+.hint-btn{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border-radius:8px;font-size:13px;font-weight:500;color:var(--ink-2);border:1px solid var(--line)}
+.hint-btn:hover{color:var(--accent);border-color:var(--accent)}
+.hint{display:flex;gap:10px;margin-top:14px;padding:12px 14px;background:var(--accent-soft);border-radius:var(--r-s);font-size:14.5px;line-height:1.5}
+.hint .icon{color:var(--accent);margin-top:2px}
+.hint b{display:block;font-size:12.5px;color:var(--accent);margin-bottom:2px}
+
+/* поля и варианты */
+.field{width:100%;height:44px;padding:0 14px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-s);
+  color:var(--accent);font-weight:600;transition:border-color .15s,box-shadow .15s}
+.field::placeholder{color:var(--ink-3);font-weight:400}
+.field:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+select.field{cursor:pointer;font-weight:500;color:var(--ink);padding-right:8px}
+.cloze{font-family:var(--text);font-size:16.5px;line-height:2.5;padding:14px 18px;background:var(--surface-2);border-radius:var(--r-s)}
+.blank{display:inline-block;width:9.5em;max-width:58%;height:34px;margin:0 4px;padding:0 10px;vertical-align:middle;background:var(--surface);
+  border:1px solid var(--line-2);border-radius:7px;font-family:var(--ui);font-size:15px;font-weight:600;color:var(--accent);text-align:center}
+.blank:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-s);cursor:pointer;
+  font-size:15.5px;line-height:1.5;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--line-2);background:var(--surface-2)}
+.opt input{flex:none;width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.tf{display:flex;flex-direction:column;gap:8px}
+.tf-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-s)}
+.tf-row span{flex:1;min-width:220px;font-size:15.5px;line-height:1.5}
+.toggle{display:flex;padding:3px;gap:2px;background:var(--surface-2);border-radius:9px}
+.toggle button{height:32px;padding:0 14px;border-radius:7px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.match{display:flex;flex-direction:column;gap:8px}
+.match-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 12px;align-items:center}
+.match-row .left{font-size:15.5px;line-height:1.45;padding:10px 0}
+@media (max-width:640px){.match-row{grid-template-columns:1fr}.match-row .left{padding:6px 0 0}}
+.ref{margin-top:12px;padding:12px 16px;background:var(--surface-2);border-radius:var(--r-s)}
+.ref h4{font-size:12.5px;font-weight:600;color:var(--ink-3);margin-bottom:8px}
+.ref ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.ref li{font-size:14.5px;line-height:1.45}
+
+/* последовательность */
+.seq-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.seq-item{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 10px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-s);
+  font-size:15.5px;line-height:1.45;cursor:grab;user-select:none;transition:box-shadow .15s,border-color .15s}
+.seq-item:hover{border-color:var(--accent)}
+.seq-item.dragging{opacity:.55;box-shadow:var(--shadow-2)}
+.seq-item .grip{color:var(--ink-3)}
+.seq-item .n{display:grid;place-items:center;flex:none;width:26px;height:26px;border-radius:7px;background:var(--surface-2);font-weight:600;font-size:13px}
+.seq-item .t{flex:1;min-width:0}
+.seq-move{display:flex;gap:2px}
+.seq-move button{display:grid;place-items:center;width:30px;height:30px;border-radius:7px;color:var(--ink-2)}
+.seq-move button:hover{background:var(--surface-2);color:var(--accent)}
+.seq-move .icon{width:16px;height:16px}
+.seq-answer{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:12px}
+.seq-answer .field{width:120px;text-align:center;letter-spacing:.3em;font-family:var(--mono)}
+.seq-answer span{font-size:13px;color:var(--ink-3)}
+
+/* боковая панель */
+.side{position:sticky;top:calc(var(--top) + 16px);display:flex;flex-direction:column;gap:12px}
+.side-card{padding:16px}
+.timer-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.timer{font-family:var(--mono);font-size:30px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.timer.warn{color:var(--bad)}
+.timer-cap{font-size:12.5px;color:var(--ink-3)}
+.progress{height:6px;margin-top:12px;border-radius:99px;background:var(--surface-3);overflow:hidden}
+.progress i{display:block;height:100%;border-radius:99px;background:var(--accent);transition:width .25s}
+.side-meta{display:flex;justify-content:space-between;margin-top:8px;font-size:13px;color:var(--ink-2)}
+.qmap{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:12px}
+.qmap button{height:34px;border-radius:8px;border:1px solid var(--line-2);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink-2);background:var(--surface)}
+.qmap button:hover{border-color:var(--accent);color:var(--accent)}
+.qmap button.done{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.side h3{font-size:13px;font-weight:600;color:var(--ink-3)}
+.side-note{display:flex;gap:8px;font-size:12.5px;color:var(--ink-3);line-height:1.45}
+.side-note .icon{width:15px;height:15px;margin-top:1px}
+.map-toggle{display:none}
+@media (max-width:980px){
+  .test{grid-template-columns:1fr}
+  .side{order:-1;top:var(--top);z-index:40;gap:0;margin:0 calc(-1 * clamp(12px,3vw,28px))}
+  .side-card{border-radius:0;border-width:0 0 1px;box-shadow:none;padding:10px clamp(12px,3vw,28px)}
+  .side-card.extra{display:none}
+  .timer{font-size:22px}
+  .progress{margin-top:8px}
+  .side-meta{margin-top:6px}
+  .map-toggle{display:inline-flex}
+  .qmap{display:none;grid-template-columns:repeat(auto-fill,minmax(40px,1fr))}
+  .side.open .qmap{display:grid}
+}
+
+/* финиш */
+.finish{padding:20px}
+.confirm{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.confirm p{flex:1;min-width:220px;font-size:15px}
+
+/* перерыв */
+.break{display:none;padding:clamp(28px,6vw,56px) 24px;text-align:center}
+.on-break .break{display:block}
+.on-break .content > :not(.break){display:none}
+.break .icon{width:36px;height:36px;color:var(--accent)}
+.break h2{font-size:22px;margin:12px 0 6px}
+.break p{color:var(--ink-2);max-width:44ch;margin:0 auto}
+.break .timer{font-size:48px;margin:20px 0}
+
+/* блокировка */
+.blocked{max-width:520px;margin:48px auto;padding:36px 28px;text-align:center}
+.blocked .icon{width:40px;height:40px;color:var(--bad)}
+.blocked h1{font-size:24px;margin:14px 0 8px}
+.blocked p{color:var(--ink-2);margin-bottom:22px}
+
+/* ---------- результаты ---------- */
+.res-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+@media (max-width:820px){.res-top{grid-template-columns:1fr}}
+.score{padding:24px}
+.score .faint{font-size:13.5px}
+.score-num{display:flex;align-items:baseline;gap:8px;margin:8px 0 6px}
+.score-num b{font-size:56px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.score-num span{font-size:22px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.score-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.tally div{padding:10px 12px;border-radius:var(--r-s);background:var(--surface-2)}
+.tally b{display:block;font-size:20px;font-variant-numeric:tabular-nums}
+.tally span{font-size:12.5px;color:var(--ink-2)}
+.tally .t-ok b{color:var(--ok)}.tally .t-part b{color:var(--amber)}.tally .t-zero b{color:var(--bad)}
+.skills{padding:24px}
+.skills h2,.rmap h2{font-size:16px;margin-bottom:14px}
+.skill{display:grid;grid-template-columns:minmax(0,1fr) 120px 44px;gap:12px;align-items:center;padding:8px 0}
+.skill + .skill{border-top:1px solid var(--line)}
+.skill .name{font-size:14.5px}
+.skill .name small{display:block;font-size:12px;color:var(--ink-3)}
+.skill .bar{width:100%;height:8px}
+.skill .val{font-weight:600;text-align:right;font-variant-numeric:tabular-nums;font-size:14px}
+.rmap{margin-top:16px;padding:20px 24px}
+.rmap-grid{display:flex;flex-wrap:wrap;gap:6px}
+.rmap-grid button{min-width:44px;height:34px;padding:0 8px;border-radius:8px;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.rmap-grid .full{background:var(--ok-soft);color:var(--ok)}
+.rmap-grid .part{background:var(--amber-soft);color:var(--amber)}
+.rmap-grid .zero{background:var(--bad-soft);color:var(--bad)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12.5px;color:var(--ink-3)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.review-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:32px 0 12px}
+.review-bar h2{font-size:19px}
+.review-bar .tools{display:flex;gap:8px;align-items:center}
+.review{display:flex;flex-direction:column;gap:10px}
+.rev{padding:18px 20px;scroll-margin-top:calc(var(--top) + 16px)}
+.rev-head{display:flex;gap:12px;align-items:flex-start}
+.rev-head .q-num{min-width:40px}
+.rev-head .t{flex:1;font-size:15px;line-height:1.5;padding-top:6px}
+.rev-head .chip{margin-top:6px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.cmp.single{grid-template-columns:1fr}
+@media (max-width:640px){.cmp{grid-template-columns:1fr}}
+.cmp div{padding:10px 12px;border-radius:var(--r-s);font-size:14.5px;line-height:1.5;white-space:pre-wrap}
+.cmp .lbl{display:block;font-size:12px;font-weight:600;margin-bottom:3px;white-space:normal}
+.cmp .mine{background:var(--bad-soft)}.cmp .mine .lbl{color:var(--bad)}
+.cmp .mine.ok{background:var(--ok-soft)}.cmp .mine.ok .lbl{color:var(--ok)}
+.cmp .mine.part{background:var(--amber-soft)}.cmp .mine.part .lbl{color:var(--amber)}
+.cmp .right{background:var(--surface-2)}.cmp .right .lbl{color:var(--ok)}
+details.expl{margin-top:10px}
+details.expl summary{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:13.5px;font-weight:600;color:var(--ink-2);list-style:none}
+details.expl summary::-webkit-details-marker{display:none}
+details.expl summary:hover{color:var(--accent)}
+details.expl summary .icon{width:15px;height:15px;transition:transform .2s}
+details.expl[open] summary .icon{transform:rotate(180deg)}
+.expl-body{margin-top:8px;padding:12px 14px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:0 var(--r-s) var(--r-s) 0;
+  font-family:var(--text);font-size:15.5px;line-height:1.65;white-space:pre-wrap}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+
+/* ---------- карточки ---------- */
+.decks{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 24px}
+.decks button{height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:14px;font-weight:500;color:var(--ink-2)}
+.decks button:hover{border-color:var(--line-2);color:var(--ink)}
+.decks button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.decks button span{opacity:.6;margin-left:4px;font-variant-numeric:tabular-nums}
+.scene{perspective:1600px;max-width:640px;margin:0 auto}
+.flashcard{position:relative;min-height:340px;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.2,.2,1);cursor:pointer}
+.flashcard.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;overflow:auto;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  padding:48px clamp(20px,5vw,44px);text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-2)}
+.face .cap{position:absolute;top:18px;left:0;right:0;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.face p{font-family:var(--text);font-size:clamp(17px,2.4vw,20px);line-height:1.6;white-space:pre-wrap;max-width:32em}
+.face.long p{font-size:clamp(15.5px,2vw,17px)}
+.face .tip{position:absolute;bottom:16px;left:0;right:0;font-size:12.5px;color:var(--ink-3)}
+.face.back{transform:rotateY(180deg);background:var(--accent-soft);border-color:transparent}
+.face.back .cap,.face.back .tip{color:var(--accent)}
+.deck-nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:22px}
+.deck-nav .counter{min-width:72px;text-align:center;font-size:14px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.deck-progress{max-width:640px;margin:14px auto 0}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.no-print,#hl-btn{display:none!important}
+  main{padding:0}
+  .panel{box-shadow:none;border-color:#ccc}
+  .res-top{grid-template-columns:1fr 1fr}
+  details.expl summary{display:none}
+  details.expl > .expl-body{display:block}
+  .rev{break-inside:avoid}
+}
+</style>
+
+</head>
+<body>
+<header class="topbar no-print" id="topbar"></header>
+<main id="app"></main>
+<script>
+
+
+/* ================================================================
+   МЦКО · Литература, 10 класс — тренажёр
+   Один файл, без сборки и внешних зависимостей.
+   ================================================================ */
+(function () {
+'use strict';
+
+var DATA = {"cards":{"terms":[{"front":"Реальное лицо, создатель художественного произведения.","back":"Автор"},{"front":"Лицо, от имени которого ведется повествование в эпическом произведении.","back":"Рассказчик (повествователь)"},{"front":"То, о чем повествуется; предмет изображения в художественном произведении.","back":"Тема"},{"front":"Главная мысль, обобщающая смысловое, образное и эмоциональное содержание произведения.","back":"Идея"},{"front":"Совокупность событий, выстроенных в хронологическом или художественном порядке.","back":"Сюжет"},{"front":"Острое столкновение характеров и обстоятельств, взглядов и жизненных принципов.","back":"Конфликт"},{"front":"Построение художественного произведения, расположение и взаимосвязь его частей.","back":"Композиция"},{"front":"Элемент сюжета: введение в действие, изображение условий и обстоятельств, предшествующих конфликту.","back":"Экспозиция"},{"front":"Элемент сюжета: исходное событие, с которого начинается развитие действия и обострение конфликта.","back":"Завязка"},{"front":"Элемент сюжета: система событий, которые вытекают из завязки и ведут к наивысшему напряжению.","back":"Развитие действия"},{"front":"Элемент сюжета: момент наивысшего напряжения в развитии действия, столкновение сил.","back":"Кульминация"},{"front":"Элемент сюжета: разрешение конфликта или указание на способы его разрешения.","back":"Развязка"},{"front":"Вводная часть произведения, предваряющая основной рассказ.","back":"Пролог"},{"front":"Заключительная часть произведения, в которой сообщается о судьбе героев после описываемых событий.","back":"Эпилог"},{"front":"Короткий текст (цитата, пословица), помещаемый автором перед произведением для выражения его основной мысли.","back":"Эпиграф"},{"front":"Образ того героя в лирическом произведении, чьи переживания, мысли и чувства отражены в нем.","back":"Лирический герой"},{"front":"Описание или изображение картин природы в художественном произведении.","back":"Пейзаж"},{"front":"Описание внешности персонажа (черт лица, фигуры, одежды), помогающее раскрыть его характер.","back":"Портрет"},{"front":"Художественное описание внутреннего убранства помещений, в которых живут или находятся герои.","back":"Интерьер"},{"front":"Выразительная подробность, несущая значительную смысловую и эмоциональную нагрузку (например, халат Обломова).","back":"Художественная деталь"},{"front":"Многозначный предметный образ, объединяющий разные планы действительности (например, образ грозы у Островского).","back":"Символ"},{"front":"Отдельное высказывание персонажа в диалоге.","back":"Реплика"},{"front":"Авторское пояснение в тексте пьесы, содержащее указания на обстановку, жесты, интонации героев.","back":"Ремарка"},{"front":"Форма речи, представляющая собой разговор двух или более лиц.","back":"Диалог"},{"front":"Развернутое, пространное высказывание одного персонажа, не прерываемое репликами других.","back":"Монолог"},{"front":"Средство психологизма, передающее невысказанные, сокровенные мысли героя в их естественном течении.","back":"Внутренняя речь\n(внутренний монолог)"},{"front":"Способность искусства слова изображать внутренний мир человека, его мысли и чувства в динамике.","back":"Психологизм"},{"front":"Добродушный, мягкий смех, выявление забавного и комичного в жизненных явлениях.","back":"Юмор"},{"front":"Скрытая насмешка; употребление слова или выражения в смысле, обратном буквальному.","back":"Ирония"},{"front":"Беспощадное, уничтожающее осмеяние пороков общества и человека.","back":"Сатира"},{"front":"Язвительная, едкая, высшая степень иронии.","back":"Сарказм"},{"front":"Причудливое смешение реального и фантастического, прекрасного и безобразного, трагического и комического.","back":"Гротеск"},{"front":"Род литературы, в котором объективно повествуется о событиях, происходящих в пространстве и времени.","back":"Эпос"},{"front":"Род литературы, выражающий субъективные личные чувства, мысли и переживания автора.","back":"Лирика"},{"front":"Род литературы, к которому относятся произведения, предназначенные для постановки на сцене.","back":"Драма"},{"front":"Род литературы, сочетающий эпическое и лирическое начала (поэма, баллада, роман в стихах).","back":"Лиро-эпос"},{"front":"Эпический жанр: малая форма повествовательной литературы с одной сюжетной линией.","back":"Рассказ"},{"front":"Эпический жанр: средняя форма повествовательной литературы, промежуточная между романом и рассказом.","back":"Повесть"},{"front":"Эпический жанр: крупная форма с разветвленным сюжетом, множеством героев и судеб.","back":"Роман"},{"front":"Крупная эпическая форма, охватывающая судьбы нации на фоне исторических событий мирового масштаба.","back":"Роман-эпопея"},{"front":"Драматический жанр: пьеса, в которой характеры и действия представлены в смешных формах.","back":"Комедия"},{"front":"Лиро-эпический жанр: крупное стихотворное произведение с сюжетно-повествовательной организацией.","back":"Поэма"},{"front":"Лирический жанр: стихотворение, проникнутое грустью, философскими размышлениями.","back":"Элегия"},{"front":"Лирический жанр: стихотворное письмо, обращенное к конкретному лицу.","back":"Послание"},{"front":"Лиро-эпический жанр: стихотворение с напряженным сюжетом, часто с элементами фантастики и мистики.","back":"Баллада"},{"front":"Ведущее литературное направление второй половины XIX века, стремящееся к объективному изображению действительности.","back":"Реализм"},{"front":"Созвучие концов стихотворных строк.","back":"Рифма"},{"front":"Группа стихов (строк), объединенных общим смыслом, ритмом и рифмовкой.","back":"Строфа"}],"devices":[{"front":"Иносказательное изображение отвлеченного понятия с помощью конкретного жизненного образа (например, Лиса — хитрость).","back":"Аллегория"},{"front":"Чрезмерное художественное преувеличение свойств изображаемого предмета.","back":"Гипербола"},{"front":"Чрезмерное художественное преуменьшение свойств изображаемого предмета («мальчик с пальчик»).","back":"Литота"},{"front":"Скрытое сравнение, перенесение свойств одного предмета на другой на основании их сходства.","back":"Метафора"},{"front":"Замена одного слова другим на основе смежности двух понятий («читал охотно Апулея, а Цицерона не читал»).","back":"Метонимия"},{"front":"Наделение неодушевленных предметов человеческими чувствами и свойствами.","back":"Олицетворение"},{"front":"Прямое сопоставление явлений на основе их сходства (часто с союзами «как», «словно»).","back":"Сравнение"},{"front":"Образное, художественное определение, подчеркивающее характерное свойство предмета.","back":"Эпитет"},{"front":"Стилистическая фигура: резкое противопоставление понятий, образов или состояний.","back":"Антитеза"},{"front":"Расположение слов по возрастанию или убыванию их эмоциональной значимости.","back":"Градация"},{"front":"Нарушение прямого порядка слов в предложении для выделения смысловых акцентов.","back":"Инверсия"},{"front":"Намеренное расчленение предложения на самостоятельные отрезки с точками («Он ушел. Навсегда.»).","back":"Парцелляция"},{"front":"Вопрос, задающийся не для получения ответа, а для сильного эмоционального утверждения мысли.","back":"Риторический вопрос"},{"front":"Эмоциональное утверждение, облеченное в восклицательную форму, не требующее ответа.","back":"Риторическое восклицание"},{"front":"Условное обращение к неодушевленным предметам, явлениям природы или отсутствующим людям.","back":"Риторическое обращение"},{"front":"Единоначатие; повторение одинаковых слов или фраз в начале строк.","back":"Анафора"},{"front":"Повторение одинаковых слов или фраз в конце стихотворных строк.","back":"Эпифора"},{"front":"Повторение одинаковых согласных звуков в стихотворении для звуковой выразительности.","back":"Аллитерация"},{"front":"Повторение одинаковых гласных звуков в стихотворной строке.","back":"Ассонанс"},{"front":"Намеренное повторение одного и того же слова или словосочетания для усиления выразительности.","back":"Лексический повтор"},{"front":"Одинаковое синтаксическое построение соседних предложений или стихотворных строк.","back":"Синтаксический параллелизм"},{"front":"Слова, противоположные по своему лексическому значению.","back":"Антонимы"},{"front":"Слова, близкие или тождественные по смыслу, но разные по звучанию.","back":"Синонимы"},{"front":"Слова, вышедшие из активного употребления в связи с исчезновением обозначаемых ими предметов и явлений.","back":"Историзмы"},{"front":"Новые слова, созданные автором или появившиеся в языке недавно.","back":"Неологизм"},{"front":"Краткое, выразительное изречение, содержащее обобщенную глубокую мысль.","back":"Афоризм"},{"front":"Устойчивое, неделимое словосочетание, смысл которого не складывается из смыслов отдельных слов («бить баклуши»).","back":"Фразеологизм"}],"characters":[{"front":"Властная купчиха, требующая неукоснительного соблюдения старых патриархальных порядков, свекровь Катерины.","back":"Марфа Игнатьевна Кабанова\n(Кабаниха)\n«Гроза» (А.Н. Островский)"},{"front":"Слабовольный купец, полностью подчиняющийся воле матери, любящий жену, но не способный ее защитить.","back":"Тихон Кабанов\n«Гроза» (А.Н. Островский)"},{"front":"Механик-самоучка, мечтающий изобрести перпетуум-мобиле и установить громоотводы; осуждает «жестокие нравы».","back":"Кулигин\n«Гроза» (А.Н. Островский)"},{"front":"Странница, рассказывающая небылицы про людей с песьими головами и про то, что «время стало короче».","back":"Феклуша\n«Гроза» (А.Н. Островский)"},{"front":"Дерзкий конторщик Дикого, единственный, кто не боится отвечать ему грубостью; сбегает с Варварой в Москву.","back":"Иван Кудряш\n«Гроза» (А.Н. Островский)"},{"front":"Мещанин, обсуждающий с Кулигиным самодурство Дикого в начале пьесы.","back":"Шапкин\n«Гроза» (А.Н. Островский)"},{"front":"Старая барыня, которая в сопровождении двух лакеев пугает главную героиню геенной огненной за её «красоту».","back":"Полусумасшедшая барыня\n«Гроза» (А.Н. Островский)"},{"front":"Разорившаяся помещица, чувствительная, добрая, но легкомысленная и непрактичная.","back":"Любовь Андреевна Раневская\n«Вишневый сад» (А.П. Чехов)"},{"front":"Предприимчивый купец, сын бывшего крепостного, покупающий дворянское имение.","back":"Ермолай Алексеевич Лопахин\n«Вишневый сад» (А.П. Чехов)"},{"front":"Брат Раневской, инфантильный аристократ, произносящий речи перед старым шкафом.","back":"Леонид Андреевич Гаев\n«Вишневый сад» (А.П. Чехов)"},{"front":"«Вечный студент», идеалист, призывающий Аню к новой жизни и труду.","back":"Петя Трофимов\n«Вишневый сад» (А.П. Чехов)"},{"front":"Старый, больной лакей, которого в финале забывают в заколоченном доме.","back":"Фирс\n«Вишневый сад» (А.П. Чехов)"},{"front":"Земский врач, который постепенно деградирует, полнеет и превращается в раздражительного стяжателя.","back":"Дмитрий Ионыч Старцев\nРассказ «Ионыч» (А.П. Чехов)"},{"front":"Учитель гимназии, панически боявшийся любых отклонений от правил, прятавший себя в чехлы.","back":"Беликов\nРассказ «Человек в футляре» (А.П. Чехов)"},{"front":"Мелкий чиновник (экзекутор), нечаянно чихнувший на генерала и умерший от страха.","back":"Иван Дмитриевич Червяков\nРассказ «Смерть чиновника» (А.П. Чехов)"},{"front":"Аристократ, англоман с безупречными манерами, вступающий в яростный идеологический спор с нигилистом.","back":"Павел Петрович Кирсанов\n«Отцы и дети» (И.С. Тургенев)"},{"front":"«Псевдонигилист», подражатель Базарова, который лишь поверхностно перенял модные фразы.","back":"Виктор Ситников\n«Отцы и дети» (И.С. Тургенев)"},{"front":"Эмансипированная дама, передовая женщина, подражающая нигилистам, но выглядящая карикатурно.","back":"Евдоксия Кукшина\n«Отцы и дети» (И.С. Тургенев)"},{"front":"Слуга в доме Кирсановых, щеголяющий цветными галстуками и читающий по слогам, представитель «новых» слуг.","back":"Петр\n«Отцы и дети» (И.С. Тургенев)"},{"front":"Молодая, простая крестьянка, ставшая матерью ребенка Николая Петровича Кирсанова.","back":"Фенечка\n«Отцы и дети» (И.С. Тургенев)"},{"front":"Бывший студент, друг Раскольникова, добрый и отзывчивый, который бескорыстно помогает его семье.","back":"Дмитрий Разумихин\n«Преступление и наказание» (Ф.М. Достоевский)"},{"front":"Умный и проницательный следователь по уголовным делам, тонкий психолог, разгадавший тайну Раскольникова.","back":"Порфирий Петрович\n«Преступление и наказание» (Ф.М. Достоевский)"},{"front":"Беспринципный делец, мечтающий жениться на бедной девушке, чтобы она всю жизнь считала его своим спасителем.","back":"Петр Петрович Лужин\n«Преступление и наказание» (Ф.М. Достоевский)"},{"front":"Молодой чиновник, пошлый приверженец модных «прогрессивных» (коммунистических) идей, сосед Мармеладовых.","back":"Андрей Лебезятников\n«Преступление и наказание» (Ф.М. Достоевский)"},{"front":"Дворянин, утративший интерес к активной жизни; человек с «хрустальной» душой, проводящий дни на диване.","back":"Илья Ильич Обломов\n«Обломов» (И.А. Гончаров)"},{"front":"Энергичный, деятельный и прагматичный друг главного героя, наполовину немец.","back":"Андрей Штольц\n«Обломов» (И.А. Гончаров)"},{"front":"Верный, но ворчливый и неряшливый слуга, преданный своему барину со времен его детства в Обломовке.","back":"Захар\n«Обломов» (И.А. Гончаров)"},{"front":"Брат Агафьи Матвеевны Пшеницыной, хитрый и беспринципный чиновник, провернувший аферу с фальшивым долгом.","back":"Иван Матвеевич Мухояров\n«Обломов» (И.А. Гончаров)"},{"front":"Простой солдат, воплощающий в себе народную мудрость, доброту и способность жить настоящим моментом.","back":"Платон Каратаев\n«Война и мир» (Л.Н. Толстой)"},{"front":"Скромный, внешне негероический командир артиллерийской батареи, совершивший подвиг в Шенграбенском сражении.","back":"Капитан Тушин\n«Война и мир» (Л.Н. Толстой)"},{"front":"Гусар, командир партизанского отряда, смелый и лихой офицер; сделал предложение Наташе Ростовой.","back":"Василий Денисов\n«Война и мир» (Л.Н. Толстой)"},{"front":"Крестьянин-партизан, жестокий и беспощадный к врагу, представляющий собой «дубину народной войны».","back":"Тихон Щербатый\n«Война и мир» (Л.Н. Толстой)"},{"front":"Старый, властный и жесткий князь, требующий от дочери абсолютного повиновения.","back":"Николай Андреевич Болконский\n«Война и мир» (Л.Н. Толстой)"},{"front":"Немецкий офицер на русской службе, педантичный мещанин, муж Веры Ростовой.","back":"Берг\n«Война и мир» (Л.Н. Толстой)"}],"plot":[{"front":"Героиня тайно встречается с возлюбленным в овраге за садом, пока ее муж находится в отъезде по торговым делам.","back":"Свидание Катерины и Бориса\n«Гроза» (А.Н. Островский)"},{"front":"Не выдержав мук совести и угрожающих раскатов грома, героиня падает на колени и прилюдно признается мужу в измене.","back":"Покаяние Катерины\n«Гроза» (А.Н. Островский)"},{"front":"На торгах бывший крепостной заявляет: «Я купил!», приобретая дворянское имение, где его отец и дед были рабами.","back":"Покупка вишневого сада Лопахиным\n«Вишневый сад» (А.П. Чехов)"},{"front":"Под стук топоров, рубящих деревья, старого больного слугу забывают в наглухо запертом доме.","back":"Финал пьесы\n«Вишневый сад» (А.П. Чехов)"},{"front":"Герой вступает в яростный спор о науке, искусстве и народе со старшим поколением за обеденным столом.","back":"Спор Базарова и Павла Петровича\n«Отцы и дети» (И.С. Тургенев)"},{"front":"Герой случайно режет палец при вскрытии тифозного крестьянина, заражается и трагически умирает.","back":"Смерть Базарова\n«Отцы и дети» (И.С. Тургенев)"},{"front":"Нищий бывший чиновник погибает под колесами щегольской коляски, успевая лишь попрощаться со старшей дочерью.","back":"Смерть Мармеладова\n«Преступление и наказание» (Ф.М. Достоевский)"},{"front":"Герой читает вместе с девушкой евангельскую притчу о воскресении Лазаря.","back":"Раскольников и Соня Мармеладова\n«Преступление и наказание» (Ф.М. Достоевский)"},{"front":"Герой влюбляется в девушку, услышав, как она с невероятным чувством поет арию «Casta Diva».","back":"Обломов и Ольга Ильинская\n«Обломов» (И.А. Гончаров)"},{"front":"Герой получает тяжелое ранение в голову, глядит в высокое небо и понимает ничтожность своего прежнего кумира — Наполеона.","back":"Ранение князя Андрея под Аустерлицем\n«Война и мир» (Л.Н. Толстой)"},{"front":"Герой видит на краю дороги старый засохший дуб, а через несколько недель замечает, что он зазеленел, что символизирует возрождение героя.","back":"Встреча князя Андрея с дубом\n«Война и мир» (Л.Н. Толстой)"},{"front":"Огромная Москва оставлена жителями. Герой, переодевшись в кучерское платье, остается в городе, чтобы убить Наполеона.","back":"Пьер Безухов в захваченной Москве\n«Война и мир» (Л.Н. Толстой)"}],"poems":[{"front":"«Любви, надежды, тихой славы\nНедолго нежил нас обман,\nИсчезли юные забавы,\nКак сон, как утренний туман...»","back":"А.С. Пушкин\n«К Чаадаеву»\n\nТема: вольнолюбивая лирика, призыв к пробуждению Родины."},{"front":"«Прощай, свободная стихия!\nВ последний раз передо мной\nТы катишь волны голубые\nИ блещешь гордою красой.»","back":"А.С. Пушкин\n«К морю»\n\nТема: философско-романтическая лирика, прощание со свободным идеалом."},{"front":"«Восстань, пророк, и виждь, и внемли,\nИсполнись волею моей,\nИ, обходя моря и земли,\nГлаголом жги сердца людей.»","back":"А.С. Пушкин\n«Пророк»\n\nТема: божественное предназначение поэта и поэзии."},{"front":"«Мчатся тучи, вьются тучи;\nНевидимкою луна\nОсвещает снег летучий;\nМутно небо, ночь мутна.»","back":"А.С. Пушкин\n«Бесы»\n\nТема: философская лирика, жизненная неприкаянность и страх перед стихией."},{"front":"«Белеет парус одинокой\nВ тумане моря голубом!.. —\nЧто ищет он в стране далекой?\nЧто кинул он в краю родном?..»","back":"М.Ю. Лермонтов\n«Парус»\n\nТема: философская лирика, мятежность, поиск смысла жизни."},{"front":"«Погиб поэт! — невольник чести —\nПал, оклеветанный молвой,\nС свинцом в груди и жаждой мести,\nПоникнув гордой головой!..»","back":"М.Ю. Лермонтов\n«Смерть Поэта»\n\nТема: трагическая судьба поэта, обличение жестокого светского общества."},{"front":"«Печально я гляжу на наше поколенье!\nЕго грядущее — иль пусто, иль темно,\nМеж тем, под бременем познанья и сомненья,\nВ бездействии состарится оно.»","back":"М.Ю. Лермонтов\n«Дума»\n\nТема: гражданская лирика, трагедия бездеятельного поколения."},{"front":"«Средь шумного бала, случайно,\nВ тревоге мирской суеты,\nТебя я увидел, но тайна\nТвои покрывала черты.»","back":"А.К. Толстой\n«Средь шумного бала, случайно...»\n\nТема: любовная лирика, зарождение трепетного чувства."},{"front":"«Колокольчики мои,\nЦветики степные!\nЧто глядите на меня,\nТёмно-голубые?»","back":"А.К. Толстой\n«Колокольчики мои...»\n\nТема: патриотическая и пейзажная лирика, любовь к родине."},{"front":"«Безмолвное море, лазурное море,\nСтою очарован над бездной твоей.\nТы живо; ты дышишь; смятенной любовью,\nТревожною думой наполнено ты.»","back":"В.А. Жуковский\n«Море»\n\nТема: пейзажно-философская (элегия), отражение человеческой души в стихии."},{"front":"«Люблю грозу в начале мая,\nКогда весенний, первый гром,\nКак бы резвяся и играя,\nГрохочет в небе голубом.»","back":"Ф.И. Тютчев\n«Весенняя гроза»\n\nТема: пейзажная лирика, жизнеутверждающее весеннее обновление."},{"front":"«Ещё в полях белеет снег,\nА воды уж весной шумят —\nБегут и будят сонный брег,\nБегут, и блещут, и гласят...»","back":"Ф.И. Тютчев\n«Весенние воды»\n\nТема: пейзажная лирика, радость весеннего пробуждения."},{"front":"«Умом Россию не понять,\nАршином общим не измерить:\nУ ней особенная стать —\nВ Россию можно только верить.»","back":"Ф.И. Тютчев\n«Умом Россию не понять...»\n\nТема: патриотическая лирика, иррациональная любовь к Родине."},{"front":"«Как сердцу высказать себя?\nДругому как понять тебя?\nПоймет ли он, чем ты живешь?\nМысль изреченная есть ложь.»","back":"Ф.И. Тютчев\n«Silentium!»\n\nТема: философская лирика, невыразимость чувств и богатство внутреннего мира."},{"front":"«О, как убийственно мы любим,\nКак в буйной слепоте страстей\nМы то всего вернее губим,\nЧто сердцу нашему милей!»","back":"Ф.И. Тютчев\n«О, как убийственно мы любим...»\n\nТема: любовная лирика (денисьевский цикл), разрушительная сила страсти."},{"front":"«Невозмутимый строй во всем,\nСозвучье полное в природе,\nЛишь в нашей призрачной свободе\nРазлад мы с нею сознаем.»","back":"Ф.И. Тютчев\n«Певучесть есть в морских волнах...»\n\nТема: философская лирика, разлад человека и природы."},{"front":"«Как поздней осени порою\nБывают дни, бывает час,\nКогда повеет вдруг весною\nИ что-то встрепенётся в нас...»","back":"Ф.И. Тютчев\n«К. Б.» («Я встретил вас — и всё былое...»)\n\nТема: любовная лирика, возрождение души через воспоминания."},{"front":"«Есть в осени первоначальной\nКороткая, но дивная пора —\nВесь день стоит как бы хрустальный,\nИ лучезарны вечера...»","back":"Ф.И. Тютчев\n«Есть в осени первоначальной...»\n\nТема: пейзажная лирика, умиротворенность и красота увядания."},{"front":"«Не то, что мните вы, природа:\nНе слепок, не бездушный лик —\nВ ней есть душа, в ней есть свобода,\nВ ней есть любовь, в ней есть язык...»","back":"Ф.И. Тютчев\n«Не то, что мните вы, природа...»\n\nТема: философская лирика, одухотворенность и разумность природы."},{"front":"«Нам не дано предугадать,\nКак слово наше отзовется,\n— И нам сочувствие дается,\nКак нам дается благодать...»","back":"Ф.И. Тютчев\n«Нам не дано предугадать...»\n\nТема: философская лирика, ответственность человека за свои слова и поступки."},{"front":"«Шепот, робкое дыханье,\nТрели соловья,\nСеребро и колыханье\nСонного ручья...»","back":"А.А. Фет\n«Шепот, робкое дыханье...»\n\nТема: интимная лирика, импрессионистическое описание свидания на фоне природы."},{"front":"«Сияла ночь. Луной был полон сад. Лежали\nЛучи у наших ног в гостиной без огней.\nРояль был весь раскрыт, и струны в нем дрожали...»","back":"А.А. Фет\n«Сияла ночь. Луной был полон сад...»\n\nТема: любовная лирика, всепобеждающая сила искусства и памяти."},{"front":"«Это утро, радость эта,\nЭта мощь и дня и света,\nЭтот синий свод,\nЭтот крик и вереницы...»","back":"А.А. Фет\n«Это утро, радость эта...»\n\nТема: пейзажная лирика, гимн красоте и торжеству весеннего утра."},{"front":"«Учись у них — у дуба, у берёзы.\nКругом зима. Жестокая пора!\nНапрасные на них застыли слезы,\nИ треснула, сжимаяся, кора.»","back":"А.А. Фет\n«Учись у них — у дуба, у берёзы...»\n\nТема: философская лирика, стойкость перед жизненными испытаниями."},{"front":"«Какая ночь! На всём какая нега!\nБлагодарю, родной полночный край!\nИз царства льдов, из царства вьюг и снега\nКак свеж и чист твой вылетает май!»","back":"А.А. Фет\n«Ещё майская ночь»\n\nТема: пейзажно-философская лирика, восторг перед красотой весенней ночи."},{"front":"«На пригорке то сыро, то жарко,\nВздохи дня есть в дыханьи ночном,\nНо зарница уж теплится ярко\nГолубым и зелёным огнём.»","back":"А.А. Фет\n«Вечер»\n\nТема: пейзажная лирика, гармония вечерней природы."},{"front":"«Что ты жадно глядишь на дорогу\nВ стороне от веселых подруг?\nЗнать, забило сердечко тревогу —\nВсе лицо твое вспыхнуло вдруг.»","back":"Н.А. Некрасов\n«Тройка»\n\nТема: гражданская лирика, тяжелая и бесправная доля русской крестьянки."},{"front":"«Пускай нам говорит изменчивая мода,\nЧто тема старая “страдания народа”\nИ что поэзия забыть ее должна.\nНе верьте, юноши! не стареет она.»","back":"Н.А. Некрасов\n«Элегия»\n\nТема: предназначение поэта, гражданский долг служения народу."},{"front":"«Труд этот, Ваня, был страшно громаден\nНе по плечу одному!\nВ мире есть царь: этот царь беспощаден,\nГолод названье ему.»","back":"Н.А. Некрасов\n«Железная дорога»\n\nТема: гражданская лирика, жестокая эксплуатация крестьян-строителей."},{"front":"«Поэтом можешь ты не быть,\nНо гражданином быть обязан.\nА что такое гражданин?\nОтечества достойный сын.»","back":"Н.А. Некрасов\n«Поэт и гражданин»\n\nТема: предназначение поэта, неразрывность искусства и общественного долга."},{"front":"«Я не люблю иронии твоей.\nОставь ее отжившим и не жившим,\nА нам с тобой, так горячо любившим,\nЕще остаток чувства сохранившим,\n— Нам рано предаваться ей!»","back":"Н.А. Некрасов\n«Я не люблю иронии твоей...»\n\nТема: любовная лирика (панаевский цикл), предчувствие разрыва и сложности взаимоотношений."},{"front":"«Поздняя осень. Грачи улетели,\nЛес обнажился, поля опустели,\nТолько не сжата полоска одна...\nГрустную думу наводит она.»","back":"Н.А. Некрасов\n«Несжатая полоса»\n\nТема: гражданская лирика, тяжелая крестьянская доля, бессилие перед бедой."}]},"variants":[{"id":"var_real_1","category":"real","title":"Реальный вариант №1","subtitle":"(И.А. Гончаров «Обломов», А.С. Пушкин «Пророк»)","data":{"text1":{"title":"И.А. Гончаров. «Обломов» (Фрагмент)","content":"— Где твои книги, переводы?\n— Захар куда-то дел, — отвечал Обломов, — тут где-нибудь в углу лежат.\n— В углу! — с упрёком сказал Штольц. — В этом же углу лежат и замыслы твои «служить, пока станет сил, потому что России нужны руки и головы для разработывания неистощимых источников (твои слова); работать, чтоб слаще отдыхать, а отдыхать значит жить другой, артистической, изящной стороной жизни, жизни художников, поэтов». Все эти замыслы тоже Захар сложил в угол? Помнишь, ты хотел после книг объехать чужие края, чтоб лучше знать и любить свой? «Вся жизнь есть мысль и труд, — твердил ты тогда, — труд хоть безвестный, тёмный, но непрерывный, и умереть с сознанием, что сделал своё дело». А? В каком углу лежит это у тебя?\n— Да... да... — говорил Обломов, беспокойно следя за каждым словом Штольца, — помню, что я точно... кажется... Как же, — сказал он, вдруг вспомнив прошлое, — ведь мы, Андрей, сбирались сначала изъездить вдоль и поперёк Европу, исходить Швейцарию пешком, обжечь ноги на Везувии, спуститься в Геркулан. С ума чуть не сошли! Сколько глупостей!..\n— Глупостей! — с упрёком повторил Штольц. <...> А как ты запирался с учителем математики, хотел непременно добиться, зачем тебе знать круги и квадраты, но на половине бросил и не добился? По-английски начал учиться... и не доучился! А когда я сделал план поездки за границу, звал заглянуть в германские университеты, ты вскочил, обнял меня и подал торжественно руку: «Я твой, Андрей, с тобой всюду» — это всё твои слова. Ты всегда был немножко актёр. Что ж, Илья? Я два раза был за границей, после нашей премудрости, смиренно сидел на студенческих скамьях в Бонне, в Иене, в Эрлангене, потом выучил Европу как своё имение. Но, положим, вояж — это роскошь, и не все в состоянии и обязаны пользоваться этим средством; а Россия? Я видел Россию вдоль и поперёк. Тружусь...\n— Когда-нибудь перестанешь же трудиться, — заметил Обломов.\n— Никогда не перестану. Для чего?\n— Когда удвоишь свои капиталы, — сказал Обломов.\n— Когда учетверю их, и тогда не перестану.\n— Так из чего же, — заговорил он, помолчав, — ты бьёшься, если цель твоя не обеспечить себя навсегда и удалиться потом на покой, отдохнуть?..\n— Деревенская обломовщина! — сказал Штольц.\n— Или достигнуть службой значения и положения в обществе и потом в почетном бездействии наслаждаться заслуженным отдыхом...\n— Петербургская обломовщина! — возразил Штольц.\n— Так когда же жить? — с досадой на замечания Штольца возразил Обломов. — Для чего же мучиться весь век?\n— Для самого труда, больше ни для чего. Труд — образ, содержание, стихия и цель жизни, по крайней мере моей. Вон ты выгнал труд из жизни: на что она похожа? Я попробую приподнять тебя, может быть в последний раз. Если ты и после этого будешь сидеть вот тут, с Тарантьевыми и Алексеевыми, то совсем пропадёшь, станешь в тягость даже себе. Теперь или никогда! — заключил он."},"text2":{"title":"А.С. Пушкин. «Пророк»","content":"Духовной жаждою томим,\nВ пустыне мрачной я влачился,\nИ шестикрылый серафим\nНа перепутье мне явился.\nПерстами лёгкими как сон\nМоих зениц коснулся он.\nОтверзлись вещие зеницы,\nКак у испуганной орлицы.\nМоих ушей коснулся он,\nИ их наполнил шум и звон:\nИ внял я неба содроганье,\nИ горний ангелов полёт,\nИ гад морских подводный ход,\nИ дольней лозы прозябанье.\nИ он к устам моим приник,\nИ вырвал грешный мой язык,\nИ празднословный и лукавый,\nИ жало мудрыя змеи\nВ уста замершие мои\nВложил десницею кровавой.\nИ он мне грудь рассёк мечом,\nИ сердце трепетное вынул,\nИ угль, пылающий огнём,\nВо грудь отверстую водвинул.\nКак труп в пустыне я лежал,\nИ бога глас ко мне воззвал:\n\n«Восстань, пророк, и виждь, и внемли,\nИсполнись волею моей,\nИ, обходя моря и земли,\nГлаголом жги сердца людей»."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["«Обломов» И.А. Гончарова относится к жанру ",". Особенностью построения этого произведения является то, что "," или часть сюжета, посвящённая предварительному знакомству читателя с местом действия и героями, занимает несколько глав."],"correctAnswers":[["роман","романа"],["экспозиция","экспозиция романа"]],"points":2,"explanation":"По объему и охвату явлений «Обломов» — это роман. Уникальной чертой романа является сильно затянутая экспозиция (знакомство с героем и местом действия занимает всю первую часть)."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"В разговоре с Обломовым Штольц упоминает о книгах («Где твои книги, переводы?»). Эта значимая подробность является ..., которая помогает понять образ героя.","correct":["деталь","художественная деталь"],"points":1,"explanation":"Значимая подробность, несущая смысловую нагрузку и помогающая раскрыть характер героя — это художественная деталь."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Характеризуя жизнь Обломова, Штольц использует выражение «В этом же углу лежат и замыслы твои...». В данном случае используется ..., то есть перенос свойств одного явления на другое по их сходству.","correct":["метафора","метафорой"],"points":1,"explanation":"Скрытое сравнение, основанное на сходстве, называется метафорой (замыслы не могут буквально «лежать» в углу)."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"single-choice","instruction":"Выберите верное утверждение, характеризующее предложенный фрагмент произведения И.А. Гончарова.","options":[{"id":"r1","text":"Захар имеет сильное влияние на Обломова, который во всём готов слушаться слугу."},{"id":"r2","text":"Обломов — тонко чувствующий человек с горячим сердцем, и Штольц ценит дружбу с ним."},{"id":"r3","text":"Андрей Штольц умело скрывает презрение к ленивому и праздному Обломову."},{"id":"r4","text":"Штольцу удалось спасти Обломова от обломовщины, в которую Илья Ильич погружён."}],"correctOption":"r2","points":1,"explanation":"Штольц искренне пытается «приподнять» друга, так как ценит его добрую душу, несмотря на прогрессирующую лень."},{"id":"q3","part":1,"displayNum":"3","type":"multiple-choice","instruction":"Выберите два верных утверждения, характеризующих образ Ольги Ильинской.","options":[{"id":"c1","text":"Героиня — эмансипированная женщина, которой претит домашняя атмосфера.","isCorrect":false},{"id":"c2","text":"Ольга Ильинская оценила в Обломове «голубиную душу», преданное сердце.","isCorrect":true},{"id":"c3","text":"Ольга пыталась изменить Обломова, пробудить в нём стремление быть деятельным человеком.","isCorrect":true},{"id":"c4","text":"Ольгу Ильинскую сближает с Обломовым нежелание ничего менять в своей жизни.","isCorrect":false},{"id":"c5","text":"Ольга не смогла обрести счастья в замужестве, которое стало для неё тяжёлым испытанием.","isCorrect":false}],"points":2,"explanation":"Ольга полюбила искренность Обломова и активно пыталась его переделать (пробудить к жизни), что в итоге привело к разрыву."},{"id":"q4","part":1,"displayNum":"4","type":"matching","instruction":"Установите соответствие между героями романа и их характеристиками.","leftCol":[{"id":"l1","text":"А. Штольц"},{"id":"l2","text":"Б. Обломов"},{"id":"l3","text":"В. Захар"}],"rightCol":["1. «Он весь составлен из костей, мускулов и нервов, как кровная английская лошадь».","2. «Он задумчиво сидел в креслах, в своей лениво красивой позе, не замечая, что вокруг него делалось...»","3. «Если ему приказывали сделать что-нибудь сверх этого, он исполнял приказание неохотно...»","4. «...в каждом зажиточном доме толпится рой подобных лиц обоего пола...»"],"correctMapping":{"l1":"1. «Он весь составлен из костей, мускулов и нервов...»","l2":"2. «Он задумчиво сидел в креслах...»","l3":"3. «Если ему приказывали сделать что-нибудь сверх этого...»"},"points":2,"explanation":"Штольц показан как человек дела («из мускулов и нервов»), Обломов — как апатичный мечтатель, а Захар — как ленивый, но верный слуга.","correctIdx":{"l1":0,"l2":1,"l3":2}},{"id":"q5","part":1,"displayNum":"5","type":"matching","instruction":"Установите соответствие между героями романа и фактами их судьбы.","leftCol":[{"id":"l1","text":"А. Обломов"},{"id":"l2","text":"Б. Штольц"},{"id":"l3","text":"В. Захар"}],"rightCol":["1. будет просить милостыню на паперти","2. будет уличён в мошенничестве","3. сделает успешную карьеру","4. окажется жертвой обманщиков"],"correctMapping":{"l1":"4. окажется жертвой обманщиков","l2":"3. сделает успешную карьеру","l3":"1. будет просить милостыню на паперти"},"points":2,"explanation":"Обломов становится жертвой махинаций Тарантьева и Мухоярова; Штольц добивается жизненного успеха; Захар оказывается нищим стариком на паперти.","correctIdx":{"l1":3,"l2":2,"l3":0}},{"id":"q6","part":1,"displayNum":"6","type":"sequence","instruction":"Определите последовательность указанных эпизодов в сюжете романа «Обломов». Впишите последовательность цифр без пробелов.","items":[{"id":"1","text":"Женитьба Штольца"},{"id":"2","text":"Знакомство Обломова и Ольги"},{"id":"3","text":"Сон об Обломовке"},{"id":"4","text":"Приезд гостей (Волков, Судьбинский...)"}],"correctAnswer":"4321","points":1,"explanation":"Приезд гостей (4) происходит в первой части; затем Обломов засыпает и видит Сон (3); позже Штольц знакомит его с Ольгой (2); женитьба Штольца на Ольге (1) происходит уже в конце романа."},{"id":"q7","part":1,"displayNum":"7","type":"multiple-choice","instruction":"Выберите все верные утверждения, характеризующие произведение И.А. Гончарова.","options":[{"id":"c1","text":"В конце жизни Илья Ильич возвращается в родовую Обломовку, в которой и умирает.","isCorrect":false},{"id":"c2","text":"Обломов поехал со Штольцем за границу и познакомился там с Ольгой Ильинской.","isCorrect":false},{"id":"c3","text":"Автор последовательно противопоставляет в романе Обломова и Штольца.","isCorrect":true},{"id":"c4","text":"Агафья Пшеницына искренне любит Обломова и закладывает ради его благополучия личные вещи.","isCorrect":true},{"id":"c5","text":"Захар был искренне привязан к Обломову и в конце жизни отказывается уезжать далеко от его могилы.","isCorrect":true}],"points":2,"explanation":"Обломов умирает на Выборгской стороне, так и не доехав ни до Обломовки, ни до заграницы. Агафья Пшеницына и Захар демонстрируют безграничную, жертвенную преданность барину."},{"id":"q8","part":2,"displayNum":"8","type":"short-text","instruction":"Выпишите из текста (А.С. Пушкин. «Пророк») устаревшее слово, которое означает «слово, речь» (в нужной форме).","correct":["глаголом","глагол"],"points":1,"explanation":"Устаревшее слово «глагол» в строке «Глаголом жги сердца людей» означает «слово, речь, истина»."},{"id":"q9","part":2,"displayNum":"9","type":"matching","instruction":"Установите соответствие между выделенными примерами из текста и названиями художественных приёмов.","leftCol":[{"id":"l1","text":"А. «Отверзлись вещие зеницы, / **Как у испуганной орлицы**»"},{"id":"l2","text":"Б. «И вырвал **грешный** мой язык, / И **празднословный** и **лукавый**...»"},{"id":"l3","text":"В. «И, обходя моря и земли, / **Глаголом жги сердца людей**»"}],"rightCol":["1. гипербола","2. метафора","3. эпитет","4. сравнение"],"correctMapping":{"l1":"4. сравнение","l2":"3. эпитет","l3":"2. метафора"},"points":2,"explanation":"Союз «как» указывает на сравнение; образные прилагательные — это эпитеты; «жги сердца глаголом» — скрытое сравнение, метафора.","correctIdx":{"l1":3,"l2":2,"l3":1}},{"id":"q10","part":2,"displayNum":"10","type":"fill-blanks","instruction":"В предложенном стихотворении определите: 1) размер без указания количества стоп; 2) тип рифмовки в первых четырёх строках.","textParts":["1) Размер: ",", 2) Рифмовка: ","."],"correctAnswers":[["ямб","ямбом"],["перекрестная","перекрёстная","перекрестная рифмовка","перекрёстная рифмовка"]],"points":2,"explanation":"Размер стихотворения — ямб. В первых четырёх строках рифмуются 1-я и 3-я строки (томим — серафим), 2-я и 4-я (влачился — явился): рифмовка перекрёстная (АБАБ)."},{"id":"q11","part":2,"displayNum":"11","type":"single-choice","instruction":"Какая тема определяет идейное содержание стихотворения А.С. Пушкина «Пророк»?","options":[{"id":"r1","text":"тема религиозного открытия"},{"id":"r2","text":"тема жизни и смерти"},{"id":"r3","text":"тема созерцания природы"},{"id":"r4","text":"тема назначения поэта"}],"correctOption":"r4","points":1,"explanation":"Через библейский сюжет Пушкин раскрывает тему божественного, высокого предназначения поэта и поэзии."},{"id":"q12","part":2,"displayNum":"12","type":"multiple-choice","instruction":"Выберите два верных утверждения, характеризующих произведение А.С. Пушкина.","options":[{"id":"c1","text":"Задача лирического героя — нести истину людям.","isCorrect":true},{"id":"c2","text":"Образ орлицы подчёркивает чувство страха героя.","isCorrect":false},{"id":"c3","text":"Разговорная лексика создаёт исторический колорит.","isCorrect":false},{"id":"c4","text":"В стихотворении раскрывается момент перерождения героя.","isCorrect":true},{"id":"c5","text":"Лирический герой измождён и погибает в пустыне.","isCorrect":false}],"points":2,"explanation":"В стихотворении показан мучительный процесс духовного перерождения человека в пророка, миссия которого — нести истину («глаголом жечь сердца людей»)."},{"id":"q13","part":3,"displayNum":"13","type":"matching","instruction":"Установите соответствие между героями и названиями произведений, к которым они относятся.","leftCol":[{"id":"l1","text":"А. Ермил Гирин"},{"id":"l2","text":"Б. Лебезятников"},{"id":"l3","text":"В. Кулигин"},{"id":"l4","text":"Г. Денисов"},{"id":"l5","text":"Д. Мухояров"}],"rightCol":["1. «Обломов» (И.А. Гончаров)","2. «Война и мир» (Л.Н. Толстой)","3. «Кому на Руси жить хорошо» (Н.А. Некрасов)","4. «Отцы и дети» (И.С. Тургенев)","5. «Преступление и наказание» (Ф.М. Достоевский)","6. «Гроза» (А.Н. Островский)"],"correctMapping":{"l1":"3. «Кому на Руси жить хорошо» (Н.А. Некрасов)","l2":"5. «Преступление и наказание» (Ф.М. Достоевский)","l3":"6. «Гроза» (А.Н. Островский)","l4":"2. «Война и мир» (Л.Н. Толстой)","l5":"1. «Обломов» (И.А. Гончаров)"},"points":2,"explanation":"Гирин — крестьянин из поэмы Некрасова; Лебезятников — пошлый радикал у Достоевского; Кулигин — самоучка у Островского; Денисов — гусар-партизан у Толстого; Мухояров — вороватый чиновник у Гончарова.","correctIdx":{"l1":2,"l2":4,"l3":5,"l4":1,"l5":0}},{"id":"q14","part":3,"displayNum":"14","type":"multiple-choice","instruction":"В каких из перечисленных произведений местом действия является Петербург? Выберите все верные варианты.","options":[{"id":"c1","text":"«Гроза» А.Н. Островского","isCorrect":false},{"id":"c2","text":"«Отцы и дети» И.С. Тургенева","isCorrect":false},{"id":"c3","text":"«Кому на Руси жить хорошо» Н.А. Некрасова","isCorrect":false},{"id":"c4","text":"«Война и мир» Л.Н. Толстого","isCorrect":true},{"id":"c5","text":"«Преступление и наказание» Ф.М. Достоевского","isCorrect":true}],"points":2,"explanation":"Петербург — место действия всего романа «Преступление и наказание» и ряда важнейших сцен (салон Анны Шерер) в «Войне и мире»."},{"id":"q15","part":3,"displayNum":"15","type":"matching","instruction":"По предложенным фрагментам определите названия стихотворений.","leftCol":[{"id":"l1","text":"А. «На пригорке то сыро, то жарко,\nВздохи дня есть в дыханьи ночном...»"},{"id":"l2","text":"Б. «...служа искусству,\nДля блага ближнего живи,\nСвой гений подчиняя чувству...»"},{"id":"l3","text":"В. «Как поздней осени порою\nБывают дни, бывает час,\nКогда повеет вдруг весною...»"},{"id":"l4","text":"Г. «Как сердцу высказать себя?\nДругому как понять тебя?\nПоймёт ли он, чем ты живёшь?»"}],"rightCol":["1. «К. Б.» («Я встретил вас — и всё былое...»)","2. «Это утро, радость эта...»","3. «Поэт и Гражданин»","4. «Silentium!»","5. «Вечер»","6. «Поэт»"],"correctMapping":{"l1":"5. «Вечер»","l2":"3. «Поэт и Гражданин»","l3":"1. «К. Б.» («Я встретил вас — и всё былое...»)","l4":"4. «Silentium!»"},"points":2,"explanation":"Фрагменты А (Фет) — пейзаж из «Вечера»; Б (Некрасов) — строки из «Поэта и Гражданина»; В (Тютчев) — размышления о возрождении чувств из «К. Б.»; Г (Тютчев) — философский призыв из «Silentium!».","correctIdx":{"l1":4,"l2":2,"l3":0,"l4":3}},{"id":"q16","part":3,"displayNum":"16","type":"single-choice","instruction":"В каком из предложенных стихотворений лирический герой восхищается обновлением природы?","options":[{"id":"r1","text":"Ф.И. Тютчев. «Весенняя гроза»"},{"id":"r2","text":"А.А. Фет. «Одним толчком согнать ладью живую...»"},{"id":"r3","text":"Н.А. Некрасов. «Вчерашний день, часу в шестом...»"},{"id":"r4","text":"Ф.И. Тютчев. «Нам не дано предугадать...»"}],"correctOption":"r1","points":1,"explanation":"Именно в «Весенней грозе» Тютчева звучит восторженное упоение динамичной, живой, обновляющейся природой («Люблю грозу в начале мая...»)."}]}},{"id":"var_real_2","category":"real","title":"Реальный вариант №2","subtitle":"(А.Н. Островский «Гроза», А.А. Фет)","data":{"text1":{"title":"А.Н. Островский. «Гроза» (Фрагмент)","content":"Кулигин. Что у вас, сударь, за дела с ним? Не поймём мы никак. Охота вам жить у него да брань переносить.\n\nБорис. Уж какая охота, Кулигин! Неволя.\n\nКулигин. Да какая же неволя, сударь, позвольте вас спросить. Коли можно, сударь, так скажите нам.\n\nБорис. Отчего ж не сказать? Знали бабушку нашу, Анфису Михайловну?\n\nКулигин. Ну, как не знать!\n\nКудряш. Как не знать!\n\nБорис. Батюшку она ведь невзлюбила за то, что он женился на благородной. По этому-то случаю батюшка с матушкой и жили в Москве. Матушка рассказывала, что она трёх дней не могла ужиться с роднёй, уж очень ей дико казалось.\n\nКулигин. Ещё бы не дико! Уж что говорить! Большую привычку нужно, сударь, иметь.\n\nБорис. Воспитывали нас родители в Москве хорошо, ничего для нас не жалели. Меня отдали в Коммерческую академию, а сестру в пансион, да оба вдруг и умерли в холеру; мы с сестрой сиротами и остались. Потом мы слышим, что и бабушка здесь умерла и оставила завещание, чтобы дядя нам заплатил часть, какую следует, когда мы придём в совершеннолетие, только с условием.\n\nКулигин. С каким же, сударь?\n\nБорис. Если мы будем к нему почтительны.\n\nКулигин. Это значит, сударь, что вам наследства вашего не видать никогда.\n\nБорис. Да нет, этого мало, Кулигин! Он прежде наломается над нами, наругается всячески, как его душе угодно, а кончит всё-таки тем, что не даст ничего или так, какую-нибудь малость. Да ещё станет рассказывать, что из милости дал, что и этого бы не следовало.\n\nКудряш. Уж это у нас в купечестве такое заведение. Опять же, хоть бы вы и были к нему почтительны, нешто кто ему запретит сказать-то, что вы непочтительны?\n\nБорис. Ну да. Уж он и теперь поговаривает иногда: «У меня свои дети, за что я чужим деньги отдам? Чрез это я своих обидеть должен!»\n\nКулигин. Значит, сударь, плохо ваше дело.\n\nБорис. Кабы я один, так бы ничего! Я бы бросил всё да уехал. А то сестру жаль. Он было и её выписывал, да матушкины родные не пустили, написали, что больна. Какова бы ей здесь жизнь была, и представить страшно.\n\nКудряш. Уж само собой. Нешто они обращение понимают?\n\nКулигин. Как же вы у него живёте, сударь, на каком положении?\n\nБорис. Да ни на каком: «Живи, говорит, у меня, делай, что прикажут, а жалованья, что положу». То есть через год разочтёт, как ему будет угодно.\n\nКудряш. У него уж такое заведение. У нас никто и пикнуть не смей о жалованье, изругает на чём свет стоит.\n\nКулигин. Что ж делать-то, сударь! Надо стараться угождать как-нибудь.\n\nБорис. В том-то и дело, Кулигин, что никак невозможно. На него и свои-то никак угодить не могут; а уж где ж мне!"},"text2":{"title":"А.А. Фет. «Сияла ночь. Луной был полон сад. Лежали...»","content":"Сияла ночь. Луной был полон сад. Лежали\nЛучи у наших ног в гостиной без огней.\nРояль был весь раскрыт, и струны в нём дрожали,\nКак и сердца у нас за песнию твоей.\n\nТы пела до зари, в слезах изнемогая,\nЧто ты одна — любовь, что нет любви иной,\nИ так хотелось жить, чтоб, звука не роняя,\nТебя любить, обнять и плакать над тобой.\n\nИ много лет прошло, томительных и скучных,\nИ вот в тиши ночной твой голос слышу вновь,\nИ веет, как тогда, во вздохах этих звучных,\nЧто ты одна — вся жизнь, что ты одна — любовь.\n\nЧто нет обид судьбы и сердца жгучей муки,\nА жизни нет конца, и цели нет иной,\nКак только веровать в рыдающие звуки,\nТебя любить, обнять и плакать над тобой!"},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["Произведение А.Н. Островского «Гроза» относится к жанру ",". Краткое высказывание одного действующего лица в пьесе называется ","."],"correctAnswers":[["драма","драмы"],["реплика","репликой"]],"points":2,"explanation":"Пьесы по жанру относятся к драме. Краткое высказывание персонажа в диалоге — это реплика."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"В предложенном фрагменте герои обсуждают жизнь Бориса в доме дяди. Обмен высказываниями между действующими лицами называется...","correct":["диалог","диалогом"],"points":1,"explanation":"Диалог — форма речи, представляющая собой разговор двух или более лиц."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Герои эмоционально реагируют на высказывания друг друга («Уж какая охота, Кулигин!»; «Ещё бы не дико!»). Такие обороты речи, произнесённые с особой интонацией, называются...","correct":["риторические восклицания","риторическое восклицание","восклицания","восклицание","восклицательные предложения"],"points":1,"explanation":"Риторическое восклицание — высказывание в восклицательной форме, которое передаёт сильное чувство говорящего и усиливает выразительность речи. Реплики героев выражают раздражение и иронию по отношению к Дикому."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"single-choice","instruction":"Выберите верное утверждение, характеризующее предложенный фрагмент произведения А.Н. Островского.","options":[{"id":"r1","text":"Борис незаслуженно наговаривает на дядю, который с нежностью относится к племяннику."},{"id":"r2","text":"Кулигин надеется, что Борис поможет ему поставить в городе громоотвод."},{"id":"r3","text":"Кудряш как настоящий купец хорошо знает и понимает поведение людей своего круга."},{"id":"r4","text":"Борис в разговоре раскрывает характер одного из самодуров города Калинова."}],"correctOption":"r4","points":1,"explanation":"Через свой рассказ Борис раскрывает жестокую натуру своего дяди — Дикого, типичного самодура."},{"id":"q3","part":1,"displayNum":"3","type":"sequence","instruction":"Установите хронологическую последовательность событий пьесы «Гроза». Впишите последовательность цифр без пробелов.","items":[{"id":"1","text":"Отъезд Тихона в Москву"},{"id":"2","text":"Встреча Катерины с Борисом в саду"},{"id":"3","text":"Гроза и покаяние"},{"id":"4","text":"Отъезд Бориса"}],"correctAnswer":"1234","points":1,"explanation":"Тихон уезжает (1), что позволяет устроить встречу в саду (2). Затем начинается гроза (3). После этого Дикой отправляет Бориса в Кяхту (4)."},{"id":"q4","part":1,"displayNum":"4","type":"matching","instruction":"Установите соответствие между персонажами и их репликами.","leftCol":[{"id":"l1","text":"А. Кулигин"},{"id":"l2","text":"Б. Варвара"},{"id":"l3","text":"В. Катерина"}],"rightCol":["1. «Жестокие нравы, сударь, в нашем городе, жестокие!»","2. «Я давно вижу, что вам воли хочется».","3. «А по-моему: делай что хочешь, только бы шито да крыто было».","4. «А уж коли очень мне здесь опостынет, так не удержат меня никакой силой»."],"correctMapping":{"l1":"1. «Жестокие нравы...»","l2":"3. «А по-моему: делай что хочешь...»","l3":"4. «А уж коли очень мне здесь опостынет...»"},"points":2,"explanation":"Слова о жестоких нравах произносит Кулигин. Жизненное кредо Варвары — «шито да крыто». Катерина же демонстрирует свой отчаянный характер.","correctIdx":{"l1":0,"l2":2,"l3":3}},{"id":"q5","part":1,"displayNum":"5","type":"matching","instruction":"Установите соответствие между персонажами и их репликами.","leftCol":[{"id":"l1","text":"А. Дикой"},{"id":"l2","text":"Б. Кабаниха"},{"id":"l3","text":"В. Борис"}],"rightCol":["1. «Что обо мне-то толковать! Я вольная птица».","2. «Себя погубишь, людей соблазнишь... Много, много народу в грех введёшь!»","3. «Может, я с тобой и говорить-то не хочу. Ты должен был прежде узнать, в расположении ли я тебя слушать...»","4. «...гостей позовут, посадить не умеют <...>. Смех, да и только!»"],"correctMapping":{"l1":"3. «Может, я с тобой и говорить-то не хочу...»","l2":"2. «Себя погубишь, людей соблазнишь...»","l3":"4. «...гостей позовут, посадить не умеют <...>. Смех, да и только!»"},"points":2,"explanation":"Дикой упивается своей властью (реплика 3); Кабаниха пугает и морализирует (реплика 2); Борис рассказывает о чуждости местных порядков (реплика 4).","correctIdx":{"l1":2,"l2":1,"l3":3}},{"id":"q6","part":1,"displayNum":"6","type":"multiple-choice","instruction":"Выберите все верные утверждения, характеризующие произведение А.Н. Островского.","options":[{"id":"c1","text":"Кабанова насаждает свою волю всем членам семьи.","isCorrect":true},{"id":"c2","text":"Борис готов пойти против воли дяди ради любви к Катерине.","isCorrect":false},{"id":"c3","text":"В финале произведения Тихон обвиняет мать в гибели жены.","isCorrect":true},{"id":"c4","text":"Прилюдное покаяние Катерины в грехе — кульминация пьесы.","isCorrect":true},{"id":"c5","text":"Жизнь Катерины в родительском доме была очень тяжёлой.","isCorrect":false}],"points":2,"explanation":"Борис оказался трусом и не пошел против дяди. Жизнь Катерины в детстве, наоборот, была беззаботной («как птичка на воле»)."},{"id":"q8","part":2,"displayNum":"8","type":"short-text","instruction":"Выпишите из текста (А.А. Фет. «Сияла ночь...») слово, которое означает «отсутствие звуков, шума» (в нужной форме).","correct":["тиши","тишь"],"points":1,"explanation":"Слово «тиши» (в строке «И вот в тиши ночной...») означает тишину, безмолвие."},{"id":"q9","part":2,"displayNum":"9","type":"matching","instruction":"Установите соответствие между выделенными примерами из текста и названиями художественных приёмов.","leftCol":[{"id":"l1","text":"А. «...**лежали / Лучи** у наших ног в гостиной без огней.»"},{"id":"l2","text":"Б. «И много лет прошло, **томительных и скучных**...»"},{"id":"l3","text":"В. «**И вот** в тиши ночной твой голос слышу вновь,\n**И веет**, как тогда...»"}],"rightCol":["1. гипербола","2. эпитет","3. анафора","4. олицетворение"],"correctMapping":{"l1":"4. олицетворение","l2":"2. эпитет","l3":"3. анафора"},"points":2,"explanation":"Лучи наделяются человеческим свойством «лежать» (олицетворение); образные прилагательные — эпитеты; повтор союза «И» в начале строк — анафора.","correctIdx":{"l1":3,"l2":1,"l3":2}},{"id":"q10","part":2,"displayNum":"10","type":"fill-blanks","instruction":"В предложенном стихотворении определите: 1) размер без указания количества стоп; 2) тип рифмовки.","textParts":["1) Размер: ",", 2) Рифмовка: ","."],"correctAnswers":[["ямб","ямбом"],["перекрестная","перекрёстная","перекрестная рифмовка"]],"points":2,"explanation":"Размер — ямб. Рифмовка — перекрестная (АБАБ)."},{"id":"q11","part":2,"displayNum":"11","type":"single-choice","instruction":"Какая тема определяет идейное содержание стихотворения А.А. Фета?","options":[{"id":"r1","text":"тема трагического одиночества"},{"id":"r2","text":"тема романтических сновидений"},{"id":"r3","text":"тема любовного откровения"},{"id":"r4","text":"тема музыкального творчества"}],"correctOption":"r3","points":1,"explanation":"Главный мотив стихотворения — всепобеждающая сила любви и искусства (музыки), переданная через форму глубокого любовного откровения."},{"id":"q12","part":2,"displayNum":"12","type":"multiple-choice","instruction":"Выберите два верных утверждения, характеризующих произведение А.А. Фета.","options":[{"id":"c1","text":"Мотив песни передаёт искреннюю любовь героини.","isCorrect":true},{"id":"c2","text":"В стихотворении соотносится прошлое и настоящее.","isCorrect":true},{"id":"c3","text":"Лирический герой испытывает чувство глубокого разочарования.","isCorrect":false},{"id":"c4","text":"Анафора в последней строфе подчёркивает душевную боль героя.","isCorrect":false},{"id":"c5","text":"Герой видит смысл жизни в музыкальном самовыражении.","isCorrect":false}],"points":2,"explanation":"Стихотворение построено на воспоминании (прошлое и настоящее), а пение героини передает силу искренней любви."},{"id":"q13","part":3,"displayNum":"13","type":"matching","instruction":"Установите соответствие между героями и названиями произведений.","leftCol":[{"id":"l1","text":"А. Борис Друбецкой"},{"id":"l2","text":"Б. Порфирий Петрович"},{"id":"l3","text":"В. Тарантьев"},{"id":"l4","text":"Г. Кудряш"},{"id":"l5","text":"Д. Ситников"}],"rightCol":["1. «Обломов»","2. «Война и мир»","3. «Кому на Руси жить хорошо»","4. «Отцы и дети»","5. «Преступление и наказание»","6. «Гроза»"],"correctMapping":{"l1":"2. «Война и мир»","l2":"5. «Преступление и наказание»","l3":"1. «Обломов»","l4":"6. «Гроза»","l5":"4. «Отцы и дети»"},"points":2,"explanation":"Борис Друбецкой — карьерист у Толстого; Порфирий Петрович — следователь у Достоевского; Тарантьев — шулер у Гончарова; Кудряш — конторщик у Островского; Ситников — псевдонигилист у Тургенева.","correctIdx":{"l1":1,"l2":4,"l3":0,"l4":5,"l5":3}},{"id":"q14","part":3,"displayNum":"14","type":"multiple-choice","instruction":"Кто из перечисленных героев погибает в финале произведения? Выберите все верные варианты.","options":[{"id":"c1","text":"Борис (А.Н. Островский. «Гроза»)","isCorrect":false},{"id":"c2","text":"Аркадий Кирсанов (И.С. Тургенев. «Отцы и дети»)","isCorrect":false},{"id":"c3","text":"Штольц (И.А. Гончаров. «Обломов»)","isCorrect":false},{"id":"c4","text":"Петя Ростов (Л.Н. Толстой. «Война и мир»)","isCorrect":true},{"id":"c5","text":"Свидригайлов (Ф.М. Достоевский. «Преступление и наказание»)","isCorrect":true}],"points":2,"explanation":"Петя Ростов трагически гибнет в бою. Свидригайлов, разочаровавшись в жизни, совершает самоубийство."},{"id":"q15","part":3,"displayNum":"15","type":"matching","instruction":"По предложенным фрагментам определите названия стихотворений.","leftCol":[{"id":"l1","text":"А. «Как слово наше отзовётся\nИ нам сочувствие даётся...»"},{"id":"l2","text":"Б. «Нет, никогда нежней и бестелесней\nТвой лик, о ночь, не мог меня томить...»"},{"id":"l3","text":"В. «Эти зори без затменья,\nЭтот вздох ночной селенья,\nЭта ночь без сна...»"},{"id":"l4","text":"Г. «Пока ещё застенчиво и нежно\nСвидание продлить желаешь ты...»"}],"rightCol":["1. «Нам не дано предугадать...»","2. «Ещё майская ночь»","3. «Пророк»","4. «Это утро, радость эта...»","5. «Я не люблю иронии твоей...»","6. «Не то, что мните вы, природа...»"],"correctMapping":{"l1":"1. «Нам не дано предугадать...»","l2":"2. «Ещё майская ночь»","l3":"4. «Это утро, радость эта...»","l4":"5. «Я не люблю иронии твоей...»"},"points":2,"explanation":"А (Тютчев) — «Нам не дано предугадать...»; Б (Фет) — пейзажное «Ещё майская ночь»; В (Фет) — «Это утро, радость эта...»; Г (Некрасов) — любовная лирика «Я не люблю иронии твоей...».","correctIdx":{"l1":0,"l2":1,"l3":3,"l4":4}},{"id":"q16","part":3,"displayNum":"16","type":"single-choice","instruction":"В каком из предложенных стихотворений отражён мотив стойкости человека перед жизненными испытаниями?","options":[{"id":"r1","text":"А.А. Фет. «Учись у них — у дуба, у берёзы...»"},{"id":"r2","text":"Ф.И. Тютчев. «Умом Россию не понять...»"},{"id":"r3","text":"А.С. Пушкин. «К***» («Я помню чудное мгновенье...»)"},{"id":"r4","text":"А.К. Толстой. «Средь шумного бала, случайно...»"}],"correctOption":"r1","points":1,"explanation":"В стихотворении «Учись у них — у дуба, у березы...» Фет призывает человека учиться у природы молчаливой стойкости перед жестокими ударами судьбы."}]}},{"id":"var_real_3","category":"real","title":"Реальный вариант №3","subtitle":"(Ф.М. Достоевский «Преступление и наказание», В.А. Жуковский «Море»)","data":{"text1":{"title":"Ф.М. Достоевский. «Преступление и наказание» (Фрагмент)","content":"Он хотел было улыбнуться, но что-то бессильное и недоконченное сказалось в его бледной улыбке. Он склонил голову и закрыл руками лицо.\n\nИ вдруг странное, неожиданное ощущение какой-то едкой ненависти к Соне прошло по его сердцу. Как бы удивясь и испугавшись сам этого ощущения, он вдруг поднял голову и пристально поглядел на неё; но он встретил на себе беспокойный и до муки заботливый взгляд её; тут была любовь; ненависть его исчезла, как призрак. Это было не то; он принял одно чувство за другое. Это только значило, что та минута пришла.\n\nОпять он закрыл руками лицо и склонил вниз голову. Вдруг он побледнел, встал со стула, посмотрел на Соню и, ничего не выговорив, пересел машинально на её постель.\n\nЭта минута была ужасно похожа, в его ощущении, на ту, когда он стоял за старухой, уже высвободив из петли топор, и почувствовал, что уже «ни мгновения нельзя было терять более».\n\n— Что с вами? — спросила Соня, ужасно оробевшая.\n\nОн ничего не мог выговорить. Он совсем, совсем не так предполагал объявить и сам не понимал того, что теперь с ним делалось. Она тихо подошла к нему, села на постель подле и ждала, не сводя с него глаз. Сердце её стучало и замирало. Стало невыносимо: он обернул к ней мёртво-бледное лицо своё; губы его бессильно кривились, усиливаясь что-то выговорить. Ужас прошёл по сердцу Сони.\n\n— Что с вами? — повторила она, слегка от него отстраняясь.\n\n— Ничего, Соня. Не пугайся... Вздор! Право, если рассудить, — вздор, — бормотал он с видом себя не помнящего человека в бреду. — Зачем только тебя-то я пришёл мучить? — прибавил он вдруг, смотря на неё. — Право. Зачем? Я всё задаю себе этот вопрос, Соня...\n\nОн, может быть, и задавал себе этот вопрос четверть часа назад, но теперь проговорил в полном бессилии, едва себя сознавая и ощущая беспрерывную дрожь во всём своём теле.\n\n— Ох, как вы мучаетесь! — с страданием произнесла она, вглядываясь в него."},"text2":{"title":"В.А. Жуковский. «Море»","content":"Безмолвное море, лазурное море,\nСтою очарован над бездной твоей.\nТы живо; ты дышишь; смятенной любовью,\nТревожною думой наполнено ты.\nБезмолвное море, лазурное море,\nОткрой мне глубокую тайну твою:\nЧто движет твоё необъятное лоно?\nЧем дышит твоя напряжённая грудь?\nИль тянет тебя из земныя неволи\nДалёкое светлое небо к себе?..\nТаинственной, сладостной полное жизни,\nТы чисто в присутствии чистом его:\nТы льёшься его светозарной лазурью,\nВечерним и утренним светом горишь,\nЛаскаешь его облака золотые\nИ радостно блещешь звездами его.\nКогда же сбираются тёмные тучи,\nЧтоб ясное небо отнять у тебя —\nТы бьёшься, ты воешь, ты волны подъемлешь,\nТы рвёшь и терзаешь враждебную мглу...\nИ мгла исчезает, и тучи уходят,\nНо, полное прошлой тревоги своей,\nТы долго вздымаешь испуганны волны,\nИ сладостный блеск возвращённых небес\nНе вовсе тебе тишину возвращает;\nОбманчив твоей неподвижности вид:\nТы в бездне покойной скрываешь смятенье,\nТы, небом любуясь, дрожишь за него."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["Раскольников — "," произведения Ф.М. Достоевского «Преступление и наказание». Эпизод признания Раскольникова в убийстве является ",", так как это один из самых напряжённых моментов произведения."],"correctAnswers":[["главный герой","герой","главный персонаж"],["кульминацией","кульминация"]],"points":2,"explanation":"Раскольников — главный герой романа. Эпизод признания является моментом наивысшего напряжения (кульминацией) его психологических терзаний."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"Описывая значимость переживаемой минуты, Раскольников вспоминает о топоре: «когда он стоял за старухой, уже высвободив из петли топор». Подробность, придающая повествованию особую выразительность, называется...","correct":["художественная деталь","деталь","художественной деталью","деталью"],"points":1,"explanation":"Деталь — выразительная подробность в произведении (в данном случае топор — важнейшая смысловая деталь романа)."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"В предложенном фрагменте подробно описано состояние Раскольникова: «И вдруг странное, неожиданное ощущение какой-то едкой ненависти...». Такое изображение внутренних переживаний героя называется...","correct":["психологизм","психологизмом","тайный психологизм"],"points":1,"explanation":"Психологизм — способность литературы глубоко изображать внутренний мир и душевные терзания человека."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"single-choice","instruction":"Выберите верное утверждение, характеризующее предложенный фрагмент произведения Ф.М. Достоевского.","options":[{"id":"r1","text":"Находясь на каторге, Раскольников решился признаться Соне в любви."},{"id":"r2","text":"Совершив убийство, Раскольников сразу прибегает к Соне домой."},{"id":"r3","text":"Раскольников признаётся Соне в совершённом преступлении."},{"id":"r4","text":"Раскольников не знает, как рассказать Соне о гибели Мармеладова."}],"correctOption":"r3","points":1,"explanation":"В данном фрагменте описывается тяжелейший момент признания Раскольникова Соне в двойном убийстве (Алены Ивановны и Лизаветы)."},{"id":"q3","part":1,"displayNum":"3","type":"sequence","instruction":"Определите последовательность указанных эпизодов в сюжете произведения. Впишите последовательность цифр без пробелов.","items":[{"id":"1","text":"Раскольников получает письмо от матери."},{"id":"2","text":"Похороны Мармеладова."},{"id":"3","text":"Убийство Алёны Ивановны."},{"id":"4","text":"Замужество Дуни."}],"correctAnswer":"1324","points":1,"explanation":"В начале романа герой получает длинное письмо от матери (1). Затем идет на убийство старухи (3). В середине книги происходят поминки Мармеладова (2). В самом конце (в эпилоге) мы узнаем о свадьбе Дуни (4)."},{"id":"q4","part":1,"displayNum":"4","type":"matching","instruction":"Установите соответствие между героинями и их характеристиками.","leftCol":[{"id":"l1","text":"А. Катерина Ивановна"},{"id":"l2","text":"Б. Лизавета"},{"id":"l3","text":"В. Дуня"}],"rightCol":["1. «Тут было столько жалкого, столько страдающего в этом искривлённом болью, высохшем чахоточном лице...»","2. «...собой ужасно нескладная, росту замечательно высокого...»","3. «Её даже нельзя было назвать и хорошенькою, но зато голубые глаза её были такие ясные...»","4. «...замечательно хороша собою — высокая, удивительно стройная, сильная, самоуверенная...»"],"correctMapping":{"l1":"1. «Тут было столько жалкого...»","l2":"2. «...собой ужасно нескладная, росту замечательно высокого...»","l3":"4. «...замечательно хороша собою...»"},"points":2,"explanation":"Красавица Дуня горда и уверена в себе; Катерина Ивановна измучена чахоткой и нищетой; Лизавета — рослая, безответная и нескладная женщина.","correctIdx":{"l1":0,"l2":1,"l3":3}},{"id":"q5","part":1,"displayNum":"5","type":"matching","instruction":"Установите соответствие между героями и их поступками.","leftCol":[{"id":"l1","text":"А. Разумихин"},{"id":"l2","text":"Б. Порфирий Петрович"},{"id":"l3","text":"В. Мармеладов"}],"rightCol":["1. оставляет деньги семье Мармеладовых","2. женится на Дуне","3. погибает, попав под лошадь","4. добивается смягчения наказания Раскольникову"],"correctMapping":{"l1":"2. женится на Дуне","l2":"4. добивается смягчения наказания Раскольникову","l3":"3. погибает, попав под лошадь"},"points":2,"explanation":"Разумихин становится мужем Дуни; следователь Порфирий учитывает явку с повинной; Мармеладов погибает в уличной аварии.","correctIdx":{"l1":1,"l2":3,"l3":2}},{"id":"q7","part":1,"displayNum":"7","type":"multiple-choice","instruction":"Выберите все верные утверждения, характеризующие произведение Ф.М. Достоевского.","options":[{"id":"c1","text":"Авдотья Раскольникова выходит замуж за Лужина.","isCorrect":false},{"id":"c2","text":"Свидригайлов покончил жизнь самоубийством.","isCorrect":true},{"id":"c3","text":"Разумихин пытается помочь Раскольникову, заботится о нём.","isCorrect":true},{"id":"c4","text":"Лужина и Свидригайлова называют двойниками Раскольникова.","isCorrect":true},{"id":"c5","text":"Раскольников растратил всё, что забрал у старухи-процентщицы.","isCorrect":false}],"points":2,"explanation":"Дуня разрывает помолвку с Лужиным. Раскольников так и не воспользовался украденным, спрятав его под камнем. Лужин и Свидригайлов воплощают крайние (доведенные до абсурда) черты теории героя, поэтому их называют «двойниками»."},{"id":"q8","part":2,"displayNum":"8","type":"short-text","instruction":"Выпишите из текста (В.А. Жуковский. «Море») слово, которое означает «бездонную пропасть, неизмеримую глубину» (в нужной форме).","correct":["бездна","бездной","бездну","бездне"],"points":1,"explanation":"Слово «бездна» (в строках «Стою очарован над бездной твоей», «Ты в бездне покойной...») обозначает неизмеримую глубину."},{"id":"q9","part":2,"displayNum":"9","type":"matching","instruction":"Установите соответствие между выделенными примерами из текста и названиями художественных приёмов.","leftCol":[{"id":"l1","text":"А. «**Ты** бьёшься, **ты** воешь, **ты** волны подъемлешь...»"},{"id":"l2","text":"Б. «Ты живо; ты дышишь...»"},{"id":"l3","text":"В. «Ласкаешь его **облака золотые**...»"}],"rightCol":["1. антитеза","2. олицетворение","3. инверсия","4. повтор"],"correctMapping":{"l1":"4. повтор","l2":"2. олицетворение","l3":"3. инверсия"},"points":2,"explanation":"Многократное использование «Ты» — лексический повтор (анафора). Море, которое «дышит», — это олицетворение. Изменение прямого порядка слов («облака золотые» вместо «золотые облака») — инверсия.","correctIdx":{"l1":3,"l2":1,"l3":2}},{"id":"q10","part":2,"displayNum":"10","type":"fill-blanks","instruction":"В предложенном стихотворении определите: 1) размер без указания количества стоп; 2) название выделенного приёма в последних строках («Ты в бездне... Ты, небом...»).","textParts":["1) Размер: ",", 2) Приём: ","."],"correctAnswers":[["амфибрахий","амфибрахием"],["анафора","анафорой"]],"points":2,"explanation":"Размер — амфибрахий (трехсложная стопа с ударением на втором слоге: Без-мОлв-но-е). Единоначатие строк («Ты... Ты...») — анафора."},{"id":"q11","part":2,"displayNum":"11","type":"single-choice","instruction":"Какая тема определяет идейное содержание стихотворения В.А. Жуковского?","options":[{"id":"r1","text":"выражение глубины человеческих переживаний"},{"id":"r2","text":"пробуждение патриотического порыва"},{"id":"r3","text":"разочарование в дружеском участии"},{"id":"r4","text":"протест против повседневных тревог"}],"correctOption":"r1","points":1,"explanation":"«Море» Жуковского — философская элегия, где состояние морской стихии является отражением глубин человеческой души и ее стремления к идеалу (небу)."},{"id":"q12","part":2,"displayNum":"12","type":"multiple-choice","instruction":"Выберите два верных утверждения, характеризующих произведение В.А. Жуковского.","options":[{"id":"c1","text":"Лирический герой скорбит об ушедшей юности.","isCorrect":false},{"id":"c2","text":"Море отражает динамику чувств лирического героя.","isCorrect":true},{"id":"c3","text":"Стихотворение В.А. Жуковского является элегией.","isCorrect":true},{"id":"c4","text":"Лирический герой погибает в морской пучине.","isCorrect":false},{"id":"c5","text":"Буря передаёт враждебность моря по отношению к герою.","isCorrect":false}],"points":2,"explanation":"Стихотворение относится к жанру элегии, а море в духе романтизма выступает как живое существо, отражающее богатую динамику человеческих чувств."},{"id":"q13","part":3,"displayNum":"13","type":"matching","instruction":"Установите соответствие между героями и названиями произведений.","leftCol":[{"id":"l1","text":"А. Дикой"},{"id":"l2","text":"Б. Лебезятников"},{"id":"l3","text":"В. Долохов"},{"id":"l4","text":"Г. Аркадий"},{"id":"l5","text":"Д. Савелий"}],"rightCol":["1. «Обломов»","2. «Война и мир»","3. «Кому на Руси жить хорошо»","4. «Отцы и дети»","5. «Преступление и наказание»","6. «Гроза»"],"correctMapping":{"l1":"6. «Гроза»","l2":"5. «Преступление и наказание»","l3":"2. «Война и мир»","l4":"4. «Отцы и дети»","l5":"3. «Кому на Руси жить хорошо»"},"points":2,"explanation":"Дикой — самодур («Гроза»); Лебезятников — пошляк («П и Н»); Долохов — бретер («Война и мир»); Аркадий — приятель Базарова («Отцы и дети»); Савелий — персонаж поэмы Некрасова.","correctIdx":{"l1":5,"l2":4,"l3":1,"l4":3,"l5":2}},{"id":"q14","part":3,"displayNum":"14","type":"multiple-choice","instruction":"Выберите, кто из перечисленных героинь обретает счастье в замужестве.","options":[{"id":"c1","text":"Катерина (А.Н. Островский. «Гроза»)","isCorrect":false},{"id":"c2","text":"Фенечка (И.С. Тургенев. «Отцы и дети»)","isCorrect":true},{"id":"c3","text":"Агафья Пшеницына (И.А. Гончаров. «Обломов»)","isCorrect":true},{"id":"c4","text":"Соня (Л.Н. Толстой. «Война и мир»)","isCorrect":false},{"id":"c5","text":"Лизавета (Ф.М. Достоевский. «Преступление и наказание»)","isCorrect":false}],"points":2,"explanation":"Фенечка законно венчается с Кирсановым, Агафья же Пшеницына обретает истинное женское счастье, ухаживая за Обломовым."},{"id":"q15","part":3,"displayNum":"15","type":"matching","instruction":"По предложенным фрагментам определите названия стихотворений.","leftCol":[{"id":"l1","text":"А. «Ты скажешь: ветреная Геба,\nКормя Зевесова орла...»"},{"id":"l2","text":"Б. «Молчи, скрывайся и таи\nИ чувства и мечты свои...»"},{"id":"l3","text":"В. «Послушай: стыдно!\nПора вставать! Ты знаешь сам...»"},{"id":"l4","text":"Г. «Поздняя осень. Грачи улетели,\nЛес обнажился, поля опустели...»"}],"rightCol":["1. «Поэт и гражданин»","2. «Весенняя гроза»","3. «Silentium!»","4. «К морю»","5. «Несжатая полоса»","6. «19 октября»"],"correctMapping":{"l1":"2. «Весенняя гроза»","l2":"3. «Silentium!»","l3":"1. «Поэт и гражданин»","l4":"5. «Несжатая полоса»"},"points":2,"explanation":"Фрагмент А (Тютчев) — «Весенняя гроза»; Б (Тютчев) — «Silentium!»; В (Некрасов) — «Поэт и гражданин»; Г (Некрасов) — «Несжатая полоса».","correctIdx":{"l1":1,"l2":2,"l3":0,"l4":4}},{"id":"q16","part":3,"displayNum":"16","type":"single-choice","instruction":"В каком из предложенных стихотворений создаётся гармоничная картина природы?","options":[{"id":"r1","text":"А.К. Толстой. «Средь шумного бала, случайно...»"},{"id":"r2","text":"Н.А. Некрасов. «Вчерашний день, часу в шестом...»"},{"id":"r3","text":"А.С. Пушкин. «Бесы»"},{"id":"r4","text":"Ф.И. Тютчев. «Есть в осени первоначальной...»"}],"correctOption":"r4","points":1,"explanation":"Только у Тютчева («Есть в осени первоначальной...») показана светлая, умиротворенная гармония осенней природы."}]}},{"id":"var_train_1","category":"training","title":"Тренировочный вариант №1","subtitle":"(Л.Н. Толстой «Война и мир», Ф.И. Тютчев)","data":{"text1":{"title":"Л.Н. Толстой. «Война и мир» (Том 2, часть 3)","content":"Уже было начало июня, когда князь Андрей, возвращаясь домой, въехал опять в ту березовую рощу, в которой этот старый, корявый дуб так странно и памятно поразил его. Бубенчики еще глуше звенели в лесу, чем месяц тому назад; всё было полно, тенисто и густо; и молодые ели, рассыпанные по лесу, не нарушали общей красоты и, подделываясь под общий характер, нежно зеленели пушистыми молодыми побегами.\n\n«Да, здесь, в этом лесу, был этот дуб, с которым мы были согласны», — подумал князь Андрей. «Да где он?» — подумал опять князь Андрей, глядя на левую сторону дороги и, сам того не зная, не узнавая его, любовался тем дубом, которого он искал."},"text2":{"title":"Ф.И. Тютчев. «Весенняя гроза»","content":"Люблю грозу в начале мая,\nКогда весенний, первый гром,\nКак бы резвяся и играя,\nГрохочет в небе голубом.\n\nГремят раскаты молодые,\nВот дождик брызнул, пыль летит,\nПовисли перлы дождевые,\nИ солнце нити золотит."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["Жанр произведения Л.Н. Толстого «Война и мир» определяют как ",". В нём нашли отражение черты "," — ведущего направления литературы второй половины XIX века."],"correctAnswers":[["роман-эпопея","роман эпопея","эпопея"],["реализма","реализм"]],"points":2,"explanation":"«Война и мир» сочетает масштабные исторические события с частными судьбами героев, что характерно для романа-эпопеи. Ведущее направление второй половины XIX века — реализм."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"Как называется описание природы в художественном произведении (например, описание березовой рощи)?","correct":["пейзаж","пейзажа","пейзажный"],"points":1,"explanation":"Пейзаж — изображение картин природы в художественном произведении."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Как называется форма психологизма, передающая скрытые, невысказанные мысли героя (размышления князя Андрея)?","correct":["внутренняя речь","внутренний монолог","монолог"],"points":1,"explanation":"Внутренняя речь (внутренний монолог) — средство психологизма, передающее невысказанные мысли героя в их естественном течении."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"true-false","instruction":"Определите, верны ли следующие утверждения по Тексту 1.","items":[{"id":"i1","text":"Князь Андрей проезжал через сосновый бор.","correct":"Неверно"},{"id":"i2","text":"Молодые ели органично вписывались в общую картину леса.","correct":"Верно"},{"id":"i3","text":"Князь Андрей сразу узнал старый дуб при второй встрече.","correct":"Неверно"}],"points":2,"explanation":"В тексте четко сказано, что роща была березовая (а не сосновый бор), а князь Андрей любовался дубом, «не узнавая его»."},{"id":"q3","part":1,"displayNum":"3","type":"sequence","instruction":"Установите хронологическую последовательность событий жизненного пути князя Андрея. Впишите последовательность цифр без пробелов.","items":[{"id":"1","text":"Бородинское сражение"},{"id":"2","text":"Сражение при Аустерлице"},{"id":"3","text":"Первый бал Наташи Ростовой"},{"id":"4","text":"Встреча со старым дубом"}],"correctAnswer":"2431","points":1,"explanation":"Сражение при Аустерлице (2) -> Встреча со старым дубом (4) -> Первый бал Наташи Ростовой (3) -> Бородинское сражение (1)."},{"id":"q4","part":1,"displayNum":"4","type":"matching","instruction":"Установите соответствие между героями романа и их цитатами.","leftCol":[{"id":"l1","text":"А. Пьер Безухов"},{"id":"l2","text":"Б. Андрей Болконский"},{"id":"l3","text":"В. Платон Каратаев"}],"rightCol":["1. «Нет, жизнь не кончена в тридцать один год... Надо, чтобы все знали меня...»","2. «Надо жить, надо любить, надо верить, что живем не нынче только...»","3. «Не тужи, дружок: час терпеть, а век жить! Вот так-то...»","4. «Ему казалось, что только теперь он узнал всю сладость...»"],"correctMapping":{"l1":"2. «Надо жить, надо любить, надо верить...»","l2":"1. «Нет, жизнь не кончена в тридцать один год...»","l3":"3. «Не тужи, дружок: час терпеть, а век жить!»"},"points":2,"explanation":"Слова о вере принадлежат Пьеру, о возрождении — Андрею, народная мудрость — Каратаеву.","correctIdx":{"l1":1,"l2":0,"l3":2}}]}},{"id":"var_train_2","category":"training","title":"Тренировочный Вариант №2","subtitle":"(А.Н. Островский «Гроза», А.А. Фет)","data":{"text1":{"title":"А.Н. Островский. «Гроза» (Фрагмент)","content":"Катерина. Отчего люди не летают так, как птицы? Знаешь, мне иногда кажется, что я птица. Когда стоишь на горе, так тебя и тянет лететь. Вот так бы разбежалась, подняла руки и полетела. Попробовать нешто теперь? (Хочет бежать.)\n\nВарвара. Что ты выдумываешь-то?\n\nКатерина (вздыхая). Какая я была резвая! Я у вас завяла совершенно.\n\nВарвара. Ты думаешь, я не вижу?\n\nКатерина. Такая ли я была! Я жила, ни об чем не тужила, точно птичка на воле. Маменька во мне души не чаяла, наряжала меня, как куклу, работать не принуждала; что хочу, бывало, то и делаю."},"text2":{"title":"А.А. Фет. «Шепот, робкое дыханье...»","content":"Шепот, робкое дыханье,\nТрели соловья,\nСеребро и колыханье\nСонного ручья,\n\nСвет ночной, ночные тени,\nТени без конца,\nРяд волшебных изменений\nМилого лица,\n\nВ дымных тучках пурпур розы,\nОтблеск янтаря,\nИ лобзания, и слезы,\nИ заря, заря!.."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["Литературный род, к которому принадлежит пьеса «Гроза», называется ",". В произведении нашли отражение черты "," — ведущего направления литературы второй половины XIX века."],"correctAnswers":[["драма","драмы"],["реализма","реализм"]],"points":2,"explanation":"Правильный ответ: драма, реализм. Пьесы, предназначенные для постановки на сцене, по своей природе относятся к роду литературы «драма». Направление творчества Островского — реализм."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"Как называется обмен репликами между Катериной и Варварой в приведенном фрагменте?","correct":["диалог","диалога"],"points":1,"explanation":"Диалог — форма речи, представляющая собой непосредственный разговор двух или более лиц."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Как называется авторское пояснение, сопровождающее речь персонажей (например: «вздыхая», «Хочет бежать»)?","correct":["ремарка","ремарки","авторская ремарка"],"points":1,"explanation":"Ремарка — это специальное замечание автора в тексте пьесы, поясняющее обстановку на сцене, действия, жесты или эмоции героев."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"true-false","instruction":"Определите, верны ли следующие утверждения по Тексту 1.","items":[{"id":"i1","text":"Катерина сравнивает свою жизнь в доме Кабановых с жизнью птицы на воле.","correct":"Неверно"},{"id":"i2","text":"Варвара замечает изменения в душевном состоянии Катерины.","correct":"Верно"},{"id":"i3","text":"В детстве, до замужества, Катерина чувствовала себя свободной и счастливой.","correct":"Верно"}],"points":2,"explanation":"Катерина сравнивает с «птичкой на воле» свою ПРОШЛУЮ жизнь в родительском доме, а вот у Кабановых она, по ее же словам, совершенно «завяла»."}]}},{"id":"var_train_3","category":"training","title":"Тренировочный Вариант №3","subtitle":"(А.Н. Островский «Гроза», Н.А. Некрасов)","data":{"text1":{"title":"А.Н. Островский. «Гроза» (Действие 3, явление 3)","content":"Кулигин. Жестокие нравы, сударь, в нашем городе, жестокие! В мещанстве, сударь, вы ничего, кроме грубости да бедности нагольной, не увидите. И никогда нам, сударь, не выбиться из этой коры! Потому что честным трудом никогда не заработать нам больше насущного хлеба. А у кого деньги, сударь, тот старается бедного закабалить, чтобы на его труды даровые еще больше денег наживать...\n\nА между собой-то, сударь, как живут! Торговлю друг у друга подрывают, и не столько из корысти, сколько из зависти. Враждуют друг на друга; залучают в свои высокие-то хоромы пьяных приказных, таких, сударь, приказных, что и вида-то человеческого на нем нет, обличье-то человеческое потеряно. А те им, за малую толику, на гербовых листах злостные кляузы строчат на ближних."},"text2":{"title":"Н.А. Некрасов. «Элегия» (фрагмент)","content":"Пускай нам говорит изменчивая мода,\nЧто тема старая «страдания народа»\nИ что поэзия забыть ее должна.\nНе верьте, юноши! не стареет она.\nО, если бы ее могли состарить годы!\nПроцвел бы божий мир!.. Увы! пока народы\nВлачатся в нищете, покорствуя бичам,\nКак тощие стада по скошенным лугам,\nОплакивать их рок, служить им будет муза..."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["Жанр произведения А.Н. Островского «Гроза» определяют как ",". В пьесе ярко проявились черты "," — ведущего направления литературы второй половины XIX века."],"correctAnswers":[["драма","драмы","трагедия","трагедии"],["реализма","реализм"]],"points":2,"explanation":"Правильный ответ: драма, реализм. По жанру и роду это произведение относится к драме. Творческий метод Островского — реализм."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"Как называется развернутое, пространное высказывание одного персонажа (речь Кулигина в Тексте 1)?","correct":["монолог","монолога","развернутый монолог"],"points":1,"explanation":"Монолог — это речь действующего лица, выключенная из разговорного обмена репликами, обращенная к себе или слушателям."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Как называется стилистическая фигура — эмоциональное высказывание в форме восклицания, которое не требует ответа и усиливает выразительность речи («А между собой-то, сударь, как живут!»)?","correct":["риторическое восклицание","риторические восклицания","восклицание"],"points":1,"explanation":"Риторическое восклицание — высказывание в восклицательной форме, которое усиливает эмоциональность речи и не требует ответа. Кулигин восклицанием передаёт горечь от нравов Калинова."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"true-false","instruction":"Определите, верны ли следующие утверждения по Тексту 1.","items":[{"id":"i1","text":"Кулигин утверждает, что честным трудом в Калинове можно легко разбогатеть.","correct":"Неверно"},{"id":"i2","text":"Богатые горожане стремятся закабалить бедных для получения еще большей выгоды.","correct":"Верно"},{"id":"i3","text":"В городе процветают взаимная поддержка и купеческая благотворительность.","correct":"Неверно"}],"points":2,"explanation":"Кулигин прямо и с горечью говорит, что «честным трудом никогда не заработать нам больше насущного хлеба», а среди купцов царит бесконечная вражда и зависть."}]}},{"id":"var_auth_1","category":"authored","title":"Авторский вариант №1","subtitle":"(И.С. Тургенев «Отцы и дети», Ф.И. Тютчев «Есть в осени первоначальной…»)","data":{"text1":{"title":"И.С. Тургенев. «Отцы и дети» (Фрагмент главы X)","content":"— Я уже говорил вам, дядюшка, что мы не признаём авторитетов, — вмешался Аркадий.\n— Мы действуем в силу того, что мы признаём полезным, — промолвил Базаров. — В теперешнее время полезнее всего отрицание — мы отрицаем.\n— Всё?\n— Всё.\n— Как? не только искусство, поэзию... но и... страшно вымолвить...\n— Всё, — с невыразимым спокойствием повторил Базаров.\nПавел Петрович уставился на него. Он этого не ожидал, а Аркадий даже покраснел от удовольствия.\n— Однако позвольте, — заговорил Николай Петрович. — Вы всё отрицаете, или, выражаясь точнее, вы всё разрушаете... Да ведь надобно же и строить.\n— Это уже не наше дело... Сперва нужно место расчистить.\n— Современное состояние народа этого требует, — с важностью прибавил Аркадий, — мы должны исполнять эти требования, мы не имеем права предаваться удовлетворению личного эгоизма.\nЭта последняя фраза, видимо, не понравилась Базарову; от неё веяло философией, то есть романтизмом, ибо Базаров и философию называл романтизмом; но он не почёл за нужное опровергать своего молодого ученика.\n— Нет, нет! — воскликнул с внезапным порывом Павел Петрович, — я не хочу верить, что вы, господа, точно знаете русский народ, что вы представители его потребностей, его стремлений! Нет, русский народ не такой, каким вы его воображаете. Он свято чтит предания, он — патриархальный, он не может жить без веры...\n— Я не стану против этого спорить, — перебил Базаров, — я даже готов согласиться, что в этом вы правы.\n— А если я прав...\n— И всё-таки это ничего не доказывает.\n— Именно ничего не доказывает, — повторил Аркадий с уверенностию опытного шахматного игрока, который предвидел опасный, по-видимому, ход противника и потому нисколько не смутился.\n— Как ничего не доказывает? — пробормотал изумлённый Павел Петрович. — Стало быть, вы идёте против своего народа?\n— А хоть бы и так? — воскликнул Базаров."},"text2":{"title":"Ф.И. Тютчев. «Есть в осени первоначальной…»","content":"Есть в осени первоначальной\nКороткая, но дивная пора —\nВесь день стоит как бы хрустальный,\nИ лучезарны вечера...\n\nГде бодрый серп гулял и падал колос,\nТеперь уж пусто всё — простор везде, —\nЛишь паутины тонкий волос\nБлестит на праздной борозде.\n\nПустеет воздух, птиц не слышно боле,\nНо далеко ещё до первых зимних бурь —\nИ льётся чистая и тёплая лазурь\nНа отдыхающее поле..."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["«Отцы и дети» И.С. Тургенева относятся к литературному роду ",", а по жанру это ",", в основе которого лежит спор двух поколений и двух общественных лагерей."],"correctAnswers":[["эпос","эпосу"],["роман","романа","социально-психологический роман"]],"points":2,"explanation":"«Отцы и дети» — эпическое произведение: в нём есть повествователь, развёрнутый сюжет и система персонажей. Жанр — роман: широкий охват действительности, несколько сюжетных линий, история героя на фоне эпохи."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"В основе фрагмента лежит столкновение противоположных взглядов Базарова и Кирсановых. Острое столкновение характеров, взглядов и жизненных принципов, движущее действие произведения, называется...","correct":["конфликт","конфликтом","идейный конфликт"],"points":1,"explanation":"Конфликт — столкновение характеров, взглядов, жизненных принципов. Здесь он идейный: нигилизм Базарова против «принсипов» Павла Петровича."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Уверенность Аркадия автор передаёт словами: «с уверенностию опытного шахматного игрока». Уподобление одного явления другому по общему признаку называется...","correct":["сравнение","сравнением"],"points":1,"explanation":"Сравнение — уподобление одного предмета или явления другому по общему признаку. Показатель сравнения здесь — конструкция «с уверенностию опытного шахматного игрока» (как опытный шахматист)."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"single-choice","instruction":"Выберите верное утверждение, характеризующее предложенный фрагмент произведения И.С. Тургенева.","options":[{"id":"r1","text":"Спор ведут Базаров и Аркадий, который отстаивает взгляды старшего поколения."},{"id":"r2","text":"Базаров готов согласиться с Павлом Петровичем в оценке народа, но считает, что это ничего не доказывает."},{"id":"r3","text":"Николай Петрович поддерживает программу отрицания и предлагает немедленно начать разрушение."},{"id":"r4","text":"Павел Петрович соглашается с мыслью о том, что «сперва нужно место расчистить»."}],"correctOption":"r2","points":1,"explanation":"Базаров прямо говорит: «я даже готов согласиться, что в этом вы правы» — и тут же добавляет: «И всё-таки это ничего не доказывает». Аркадий во фрагменте на стороне Базарова, Николай Петрович возражает («надобно же и строить»), Павел Петрович спорит до конца."},{"id":"q3","part":1,"displayNum":"3","type":"sequence","instruction":"Установите хронологическую последовательность событий романа «Отцы и дети». Впишите последовательность цифр без пробелов.","items":[{"id":"1","text":"Знакомство с Одинцовой на балу у губернатора"},{"id":"2","text":"Смерть Базарова"},{"id":"3","text":"Приезд Базарова и Аркадия в Марьино"},{"id":"4","text":"Дуэль Базарова с Павлом Петровичем"}],"correctAnswer":"3142","points":1,"explanation":"Друзья приезжают в Марьино (3), затем в городе знакомятся с Одинцовой (1). После возвращения в Марьино происходит дуэль с Павлом Петровичем (4). Финал романа — заражение крови и смерть Базарова (2). Верный порядок: 3142."},{"id":"q4","part":1,"displayNum":"4","type":"matching","instruction":"Установите соответствие между персонажами романа и их репликами в предложенном фрагменте.","leftCol":[{"id":"l1","text":"А. Базаров"},{"id":"l2","text":"Б. Павел Петрович"},{"id":"l3","text":"В. Аркадий"}],"rightCol":["1. «В теперешнее время полезнее всего отрицание — мы отрицаем».","2. «Я уже говорил вам, дядюшка, что мы не признаём авторитетов».","3. «Русский народ не такой, каким вы его воображаете. Он свято чтит предания...»","4. «Вы всё отрицаете, или, выражаясь точнее, вы всё разрушаете... Да ведь надобно же и строить»."],"correctMapping":{"l1":"1. «В теперешнее время полезнее всего отрицание — мы отрицаем».","l2":"3. «Русский народ не такой, каким вы его воображаете. Он свято чтит предания...»","l3":"2. «Я уже говорил вам, дядюшка, что мы не признаём авторитетов»."},"points":2,"explanation":"Базарову принадлежит формула отрицания, Павлу Петровичу — защита патриархального народа, Аркадию — заявление о непризнании авторитетов. Четвёртая реплика («надобно же и строить») принадлежит Николаю Петровичу.","correctIdx":{"l1":0,"l2":2,"l3":1}},{"id":"q5","part":1,"displayNum":"5","type":"matching","instruction":"Установите соответствие между героями романа и их дальнейшей судьбой.","leftCol":[{"id":"l1","text":"А. Евгений Базаров"},{"id":"l2","text":"Б. Аркадий Кирсанов"},{"id":"l3","text":"В. Анна Одинцова"}],"rightCol":["1. женится на Кате Одинцовой и становится хозяйственным помещиком","2. умирает от заражения крови, полученного при вскрытии тела тифозного больного","3. выходит замуж не по любви, а по убеждению — за будущего общественного деятеля","4. уезжает за границу и доживает свой век в Дрездене"],"correctMapping":{"l1":"2. умирает от заражения крови, полученного при вскрытии тела тифозного больного","l2":"1. женится на Кате Одинцовой и становится хозяйственным помещиком","l3":"3. выходит замуж не по любви, а по убеждению — за будущего общественного деятеля"},"points":2,"explanation":"Базаров умирает от заражения крови после вскрытия тифозного больного. Аркадий женится на Кате и становится помещиком. Одинцова в эпилоге выходит замуж по убеждению. Дрезден — судьба Павла Петровича.","correctIdx":{"l1":1,"l2":0,"l3":2}},{"id":"q6","part":1,"displayNum":"6","type":"multiple-choice","instruction":"Выберите все верные утверждения, характеризующие произведение И.С. Тургенева.","options":[{"id":"c1","text":"Конфликт романа имеет и общественный, и семейный характер: спор поколений накладывается на спор демократа с аристократом.","isCorrect":true},{"id":"c2","text":"Базаров называет себя нигилистом и отрицает авторитеты, искусство и «принсипы».","isCorrect":true},{"id":"c3","text":"Спор с Павлом Петровичем заканчивается тем, что Базаров отказывается от своих взглядов.","isCorrect":false},{"id":"c4","text":"Испытание любовью к Одинцовой обнаруживает в Базарове того «романтика», которого он в себе отрицал.","isCorrect":true},{"id":"c5","text":"Повествование ведётся от первого лица — от имени Аркадия Кирсанова.","isCorrect":false}],"points":2,"explanation":"Верны первое, второе и четвёртое утверждения. Базаров своих взглядов не меняет — он гибнет, так и не отрекшись от них; повествование ведётся от третьего лица, повествователь не является персонажем."},{"id":"q8","part":2,"displayNum":"8","type":"short-text","instruction":"Выпишите из текста (Ф.И. Тютчев. «Есть в осени первоначальной…») устаревшую форму слова «более» в том виде, в каком она употреблена в стихотворении.","correct":["боле"],"points":1,"explanation":"«Пустеет воздух, птиц не слышно боле» — «боле» — устаревшая (усечённая) форма слова «более», характерная для поэтического языка XIX века."},{"id":"q9","part":2,"displayNum":"9","type":"matching","instruction":"Установите соответствие между выделенными примерами из текста и названиями художественных средств.","leftCol":[{"id":"l1","text":"А. «Весь день стоит как бы хрустальный»"},{"id":"l2","text":"Б. «паутины тонкий волос»"},{"id":"l3","text":"В. «На отдыхающее поле»"}],"rightCol":["1. сравнение","2. метафора","3. олицетворение","4. гипербола"],"correctMapping":{"l1":"1. сравнение","l2":"2. метафора","l3":"3. олицетворение"},"points":2,"explanation":"«Как бы хрустальный» — сравнение (показатель — союз «как бы»). «Паутины тонкий волос» — метафора: паутина названа волосом по сходству. «Отдыхающее поле» — олицетворение: полю приписано человеческое состояние.","correctIdx":{"l1":0,"l2":1,"l3":2}},{"id":"q10","part":2,"displayNum":"10","type":"fill-blanks","instruction":"В предложенном стихотворении определите: 1) размер без указания количества стоп; 2) тип рифмовки в первой строфе.","textParts":["1) Размер: ",", 2) Рифмовка: ","."],"correctAnswers":[["ямб","ямбом"],["перекрестная","перекрёстная","перекрестная рифмовка"]],"points":2,"explanation":"Размер — ямб (ударения на чётных слогах, пропуски ударений — пиррихии — размера не меняют). В первой строфе рифмуются 1-я с 3-й и 2-я с 4-й строками (первоначальной — хрустальный, пора — вечера), то есть рифмовка перекрестная (АБАБ)."},{"id":"q11","part":2,"displayNum":"11","type":"single-choice","instruction":"Какая тема определяет идейное содержание стихотворения Ф.И. Тютчева?","options":[{"id":"r1","text":"Любовная лирика: воспоминание о встрече с возлюбленной."},{"id":"r2","text":"Пейзажно-философская лирика: краткий миг гармонии в природе и мысль о течении времени."},{"id":"r3","text":"Гражданская лирика: обличение крепостнических порядков."},{"id":"r4","text":"Тема поэта и поэзии: размышление о назначении художника."}],"correctOption":"r2","points":1,"explanation":"Тютчев изображает «короткую, но дивную пору» ранней осени — переходное состояние природы. За пейзажем стоит философская мысль о быстротечности времени и покое завершённого труда."},{"id":"q12","part":2,"displayNum":"12","type":"multiple-choice","instruction":"Выберите два верных утверждения, характеризующих произведение Ф.И. Тютчева.","options":[{"id":"c1","text":"В стихотворении изображён краткий переходный момент между летом и осенью.","isCorrect":true},{"id":"c2","text":"Образ опустевшего поля связан с мотивом завершённого труда и покоя.","isCorrect":true},{"id":"c3","text":"Лирический герой прямо призывает читателя к борьбе и переменам.","isCorrect":false},{"id":"c4","text":"Стихотворение построено на противопоставлении города и деревни.","isCorrect":false},{"id":"c5","text":"Основное настроение финала — отчаяние перед наступающей зимой.","isCorrect":false}],"points":2,"explanation":"Верны первые два утверждения. Прямых призывов в стихотворении нет, город не упоминается, а финал («льётся чистая и тёплая лазурь») светел: до зимних бурь ещё далеко."},{"id":"q13","part":3,"displayNum":"13","type":"matching","instruction":"Установите соответствие между героями и названиями произведений.","leftCol":[{"id":"l1","text":"А. Евгений Базаров"},{"id":"l2","text":"Б. Родион Раскольников"},{"id":"l3","text":"В. Катерина Кабанова"},{"id":"l4","text":"Г. Илья Обломов"},{"id":"l5","text":"Д. Андрей Болконский"}],"rightCol":["1. «Гроза» (А.Н. Островский)","2. «Обломов» (И.А. Гончаров)","3. «Отцы и дети» (И.С. Тургенев)","4. «Преступление и наказание» (Ф.М. Достоевский)","5. «Война и мир» (Л.Н. Толстой)","6. «Кому на Руси жить хорошо» (Н.А. Некрасов)"],"correctMapping":{"l1":"3. «Отцы и дети» (И.С. Тургенев)","l2":"4. «Преступление и наказание» (Ф.М. Достоевский)","l3":"1. «Гроза» (А.Н. Островский)","l4":"2. «Обломов» (И.А. Гончаров)","l5":"5. «Война и мир» (Л.Н. Толстой)"},"points":2,"explanation":"Базаров — «Отцы и дети», Раскольников — «Преступление и наказание», Катерина — «Гроза», Обломов — «Обломов», Болконский — «Война и мир». Лишнее звено — поэма Н.А. Некрасова.","correctIdx":{"l1":2,"l2":3,"l3":0,"l4":1,"l5":4}},{"id":"q14","part":3,"displayNum":"14","type":"multiple-choice","instruction":"Кто из перечисленных героев умирает в финале произведения? Выберите все верные ответы.","options":[{"id":"c1","text":"Евгений Базаров («Отцы и дети»)","isCorrect":true},{"id":"c2","text":"Катерина Кабанова («Гроза»)","isCorrect":true},{"id":"c3","text":"Аркадий Кирсанов («Отцы и дети»)","isCorrect":false},{"id":"c4","text":"Илья Обломов («Обломов»)","isCorrect":true},{"id":"c5","text":"Анна Одинцова («Отцы и дети»)","isCorrect":false}],"points":2,"explanation":"Базаров умирает от заражения крови, Катерина бросается в Волгу, Обломов умирает на Выборгской стороне. Аркадий и Одинцова в финале живы: оба обзаводятся семьями."},{"id":"q15","part":3,"displayNum":"15","type":"matching","instruction":"По предложенным фрагментам определите названия стихотворений.","leftCol":[{"id":"l1","text":"А. «Умом Россию не понять, / Аршином общим не измерить...»"},{"id":"l2","text":"Б. «Шёпот, робкое дыханье, / Трели соловья...»"},{"id":"l3","text":"В. «Погиб поэт! — невольник чести — / Пал, оклеветанный молвой...»"},{"id":"l4","text":"Г. «Белеет парус одинокой / В тумане моря голубом!..»"}],"rightCol":["1. «Смерть Поэта» (М.Ю. Лермонтов)","2. «Парус» (М.Ю. Лермонтов)","3. «Умом Россию не понять...» (Ф.И. Тютчев)","4. «Шёпот, робкое дыханье...» (А.А. Фет)","5. «Silentium!» (Ф.И. Тютчев)","6. «К Чаадаеву» (А.С. Пушкин)"],"correctMapping":{"l1":"3. «Умом Россию не понять...» (Ф.И. Тютчев)","l2":"4. «Шёпот, робкое дыханье...» (А.А. Фет)","l3":"1. «Смерть Поэта» (М.Ю. Лермонтов)","l4":"2. «Парус» (М.Ю. Лермонтов)"},"points":2,"explanation":"А — «Умом Россию не понять...» Ф.И. Тютчева, Б — «Шёпот, робкое дыханье...» А.А. Фета, В — «Смерть Поэта» М.Ю. Лермонтова, Г — «Парус» М.Ю. Лермонтова.","correctIdx":{"l1":2,"l2":3,"l3":0,"l4":1}},{"id":"q16","part":3,"displayNum":"16","type":"single-choice","instruction":"В каком из предложенных стихотворений звучит мысль о невозможности передать словом внутренний мир человека?","options":[{"id":"r1","text":"«Silentium!» (Ф.И. Тютчев)"},{"id":"r2","text":"«Парус» (М.Ю. Лермонтов)"},{"id":"r3","text":"«Весенняя гроза» (Ф.И. Тютчев)"},{"id":"r4","text":"«Тройка» (Н.А. Некрасов)"}],"correctOption":"r1","points":1,"explanation":"Именно в «Silentium!» звучит формула «Мысль изреченная есть ложь» — мысль о невыразимости внутренней жизни человека и призыв к молчанию."}]}},{"id":"var_auth_2","category":"authored","title":"Авторский вариант №2","subtitle":"(А.П. Чехов «Человек в футляре», А.А. Фет «Учись у них — у дуба, у берёзы…»)","data":{"text1":{"title":"А.П. Чехов. «Человек в футляре» (Фрагмент)","content":"Он был замечателен тем, что всегда, даже в очень хорошую погоду, выходил в калошах и с зонтиком и непременно в тёплом пальто на вате. И зонтик у него был в чехле, и часы в чехле из серой замши, и когда вынимал перочинный нож, чтобы очинить карандаш, то и нож у него был в чехольчике; и лицо, казалось, тоже было в чехле, так как он всё время прятал его в поднятый воротник. Он носил тёмные очки, фуфайку, уши закладывал ватой, и когда садился на извозчика, то приказывал поднимать верх. Одним словом, у этого человека наблюдалось постоянное и непреодолимое стремление окружить себя оболочкой, создать себе, так сказать, футляр, который уединил бы его, защитил бы от внешних влияний.\n\nДействительность раздражала его, пугала, держала в постоянной тревоге, и, быть может, для того, чтобы оправдать эту свою робость, своё отвращение к настоящему, он всегда хвалил прошедшее и то, чего никогда не было...\n\nИ мысль свою Беликов также старался запрятать в футляр. Для него были ясны только циркуляры и газетные статьи, в которых запрещалось что-нибудь. Когда в циркуляре запрещалось ученикам выходить на улицу после девяти часов вечера или в какой-нибудь статье запрещалась плотская любовь, то это было для него ясно, определённо; запрещено — и баста. <...>\n\n— Оно, конечно, так-то так, всё это прекрасно, да как бы чего не вышло."},"text2":{"title":"А.А. Фет. «Учись у них — у дуба, у берёзы…»","content":"Учись у них — у дуба, у берёзы.\nКругом зима. Жестокая пора!\nНапрасные на них застыли слёзы,\nИ треснула, сжимаяся, кора.\n\nВсё злей метель и с каждою минутой\nСердито рвёт последние листы,\nИ за сердце хватает холод лютый;\nОни стоят, молчат; молчи и ты!\n\nНо верь весне. Её промчится гений,\nОпять теплом и жизнию дыша.\nДля ясных дней, для новых откровений\nПереболит скорбящая душа."},"questions":[{"id":"q1","part":1,"displayNum":"1","type":"fill-blanks","instruction":"Заполните пропуски в предложенном тексте. Введите термины в именительном падеже.","textParts":["«Человек в футляре» А.П. Чехова относится к литературному роду ",", а по жанру это "," — небольшое эпическое произведение с одной сюжетной линией и малым числом героев."],"correctAnswers":[["эпос","эпосу"],["рассказ","рассказа"]],"points":2,"explanation":"Перед нами эпическое произведение: события переданы повествователем. Жанр — рассказ: малый объём, одна сюжетная линия, небольшое число действующих лиц. Рассказ входит в «маленькую трилогию» вместе с «Крыжовником» и «О любви»."},{"id":"q2_1","part":1,"displayNum":"2.1","type":"short-text","instruction":"Калоши, зонтик в чехле, часы в замшевом чехле, нож в чехольчике — эти повторяющиеся значимые подробности помогают понять характер героя. Такая подробность называется...","correct":["художественная деталь","деталь","художественной деталью","деталью"],"points":1,"explanation":"Художественная деталь — выразительная подробность, которая несёт большую смысловую нагрузку. У Чехова деталь заменяет развёрнутую характеристику: вещи в чехлах говорят о характере Беликова больше, чем прямая авторская оценка."},{"id":"q2_2","part":1,"displayNum":"2.2","type":"short-text","instruction":"Описывая героя, автор доводит подробность до предела: «и лицо, казалось, тоже было в чехле». Чрезмерное художественное преувеличение свойств изображаемого называется...","correct":["гипербола","гиперболой"],"points":1,"explanation":"Гипербола — чрезмерное преувеличение. Оно создаёт комический и одновременно пугающий эффект: футляром оказывается уже не вещь, а сам человек."},{"id":"q2_3","part":1,"displayNum":"2.3","type":"single-choice","instruction":"Выберите верное утверждение, характеризующее предложенный фрагмент произведения А.П. Чехова.","options":[{"id":"r1","text":"Беликов надевает калоши и берёт зонт только в дурную погоду."},{"id":"r2","text":"Стремление героя спрятаться от жизни объясняется в тексте страхом перед действительностью."},{"id":"r3","text":"Повествователь открыто восхищается образом жизни Беликова и советует ему следовать."},{"id":"r4","text":"Для Беликова ясно прежде всего то, что циркулярами разрешено."}],"correctOption":"r2","points":1,"explanation":"В тексте прямо сказано: «Действительность раздражала его, пугала, держала в постоянной тревоге». Калоши и зонт герой носит «даже в очень хорошую погоду», а ясно ему только то, что запрещено: «запрещено — и баста»."},{"id":"q3","part":1,"displayNum":"3","type":"sequence","instruction":"Установите хронологическую последовательность событий рассказа. Впишите последовательность цифр без пробелов.","items":[{"id":"1","text":"Коваленко спускает Беликова с лестницы, и Варенька видит это"},{"id":"2","text":"Похороны Беликова"},{"id":"3","text":"В городе появляются новый учитель Коваленко и его сестра Варенька"},{"id":"4","text":"Сослуживцы решают женить Беликова на Вареньке"}],"correctAnswer":"3412","points":1,"explanation":"Приезд Коваленко и Вареньки (3) даёт повод к сватовству (4). Ссора из-за велосипеда и карикатуры заканчивается падением с лестницы на глазах у Вареньки (1), после чего Беликов заболевает и умирает (2). Верный порядок: 3412."},{"id":"q4","part":1,"displayNum":"4","type":"matching","instruction":"Установите соответствие между героями рассказа и их характеристиками.","leftCol":[{"id":"l1","text":"А. Беликов"},{"id":"l2","text":"Б. Михаил Коваленко"},{"id":"l3","text":"В. Варенька"}],"rightCol":["1. Учитель греческого языка, который даже в хорошую погоду выходит в калошах и с зонтиком","2. Молодой учитель истории и географии, прямой и резкий, не выносящий доносчиков","3. Смешливая хохлушка, поющая малороссийские романсы и катающаяся на велосипеде","4. Жена старосты, которая последние десять лет не выходит за пределы села"],"correctMapping":{"l1":"1. Учитель греческого языка, который даже в хорошую погоду выходит в калошах и с зонтиком","l2":"2. Молодой учитель истории и географии, прямой и резкий, не выносящий доносчиков","l3":"3. Смешливая хохлушка, поющая малороссийские романсы и катающаяся на велосипеде"},"points":2,"explanation":"Беликов — учитель греческого в калошах и с зонтом; Коваленко — молодой учитель истории и географии, прямой и резкий; Варенька — весёлая сестра Коваленко. Четвёртая характеристика относится к Мавре, жене старосты, из обрамляющего рассказа.","correctIdx":{"l1":0,"l2":1,"l3":2}},{"id":"q5","part":1,"displayNum":"5","type":"matching","instruction":"Установите соответствие между героями рассказа и принадлежащими им репликами или поступками.","leftCol":[{"id":"l1","text":"А. Беликов"},{"id":"l2","text":"Б. Михаил Коваленко"},{"id":"l3","text":"В. Варенька"}],"rightCol":["1. «Оно, конечно, так-то так, всё это прекрасно, да как бы чего не вышло».","2. «Я не люблю фискалов».","3. Раскатистое, заливчатое «ха-ха-ха», которым «завершилось всё».","4. Рассказывает историю героя ночью, лёжа на сеновале в сарае старосты."],"correctMapping":{"l1":"1. «Оно, конечно, так-то так, всё это прекрасно, да как бы чего не вышло».","l2":"2. «Я не люблю фискалов».","l3":"3. Раскатистое, заливчатое «ха-ха-ха», которым «завершилось всё»."},"points":2,"explanation":"«Как бы чего не вышло» — присказка Беликова. «Я не люблю фискалов» — реплика Коваленко. Смех Вареньки решает судьбу героя. Четвёртый пункт относится к Буркину — рассказчику обрамляющей истории.","correctIdx":{"l1":0,"l2":1,"l3":2}},{"id":"q6","part":1,"displayNum":"6","type":"multiple-choice","instruction":"Выберите все верные утверждения, характеризующие произведение А.П. Чехова.","options":[{"id":"c1","text":"Рассказ входит в «маленькую трилогию» вместе с «Крыжовником» и «О любви».","isCorrect":true},{"id":"c2","text":"История Беликова передана как рассказ в рассказе: её ведёт учитель Буркин.","isCorrect":true},{"id":"c3","text":"Беликов женится на Вареньке и меняет свой образ жизни.","isCorrect":false},{"id":"c4","text":"Смерть героя не освобождает город: «футлярных» людей, по мысли рассказчика, осталось немало.","isCorrect":true},{"id":"c5","text":"Действие рассказа происходит в Петербурге в годы правления Николая I.","isCorrect":false}],"points":2,"explanation":"Верны первое, второе и четвёртое утверждения. Сватовство расстраивается, и герой умирает; действие происходит в провинциальном городе конца XIX века."},{"id":"q8","part":2,"displayNum":"8","type":"short-text","instruction":"Выпишите из текста (А.А. Фет. «Учись у них — у дуба, у берёзы…») устаревшую форму слова «жизнью» в том виде, в каком она употреблена в стихотворении.","correct":["жизнию"],"points":1,"explanation":"«Опять теплом и жизнию дыша» — «жизнию» — устаревшая форма творительного падежа, характерная для высокого поэтического стиля XIX века."},{"id":"q9","part":2,"displayNum":"9","type":"matching","instruction":"Установите соответствие между выделенными примерами из текста и названиями художественных средств.","leftCol":[{"id":"l1","text":"А. «Кругом зима. Жестокая пора!»"},{"id":"l2","text":"Б. «Всё злей метель… Сердито рвёт последние листы»"},{"id":"l3","text":"В. «Её промчится гений» (о весне)"}],"rightCol":["1. метафора","2. олицетворение","3. эпитет","4. гипербола"],"correctMapping":{"l1":"3. эпитет","l2":"2. олицетворение","l3":"1. метафора"},"points":2,"explanation":"«Жестокая пора» — эпитет: образное определение. Метель, которая «злей» и «сердито рвёт», — олицетворение: природе приписаны человеческие чувства. «Гений весны» — метафора: весна названа духом-покровителем.","correctIdx":{"l1":2,"l2":1,"l3":0}},{"id":"q10","part":2,"displayNum":"10","type":"fill-blanks","instruction":"В предложенном стихотворении определите: 1) размер без указания количества стоп; 2) тип рифмовки.","textParts":["1) Размер: ",", 2) Рифмовка: ","."],"correctAnswers":[["ямб","ямбом"],["перекрестная","перекрёстная","перекрестная рифмовка"]],"points":2,"explanation":"Размер — ямб. Рифмуются 1-я строка с 3-й и 2-я с 4-й (берёзы — слёзы, пора — кора), то есть рифмовка перекрестная (АБАБ); она выдержана во всех трёх строфах."},{"id":"q11","part":2,"displayNum":"11","type":"single-choice","instruction":"Какая тема определяет идейное содержание стихотворения А.А. Фета?","options":[{"id":"r1","text":"Философская лирика: мысль о стойкости и вере в неизбежное обновление."},{"id":"r2","text":"Любовная лирика: воспоминание о ночной встрече."},{"id":"r3","text":"Гражданская лирика: призыв к переустройству общества."},{"id":"r4","text":"Тема поэта и поэзии: спор о назначении искусства."}],"correctOption":"r1","points":1,"explanation":"Зимний пейзаж служит философскому обобщению: человеку предложено учиться у деревьев молчаливой стойкости, потому что за зимой неизбежно приходит весна («Но верь весне»)."},{"id":"q12","part":2,"displayNum":"12","type":"multiple-choice","instruction":"Выберите два верных утверждения, характеризующих произведение А.А. Фета.","options":[{"id":"c1","text":"Образы дуба и берёзы становятся примером стойкости, которому призван учиться человек.","isCorrect":true},{"id":"c2","text":"Стихотворение построено на параллели между жизнью природы и жизнью человека.","isCorrect":true},{"id":"c3","text":"Зима изображена как пора покоя и безмятежной радости.","isCorrect":false},{"id":"c4","text":"Финал лишает читателя надежды на перемены.","isCorrect":false},{"id":"c5","text":"Стихотворение написано в форме диалога двух героев.","isCorrect":false}],"points":2,"explanation":"Верны первые два утверждения. Зима названа «жестокой порой», финал светел («Но верь весне»), а стихотворение представляет собой монологическое обращение лирического героя."},{"id":"q13","part":3,"displayNum":"13","type":"matching","instruction":"Установите соответствие между героями и названиями произведений.","leftCol":[{"id":"l1","text":"А. Беликов"},{"id":"l2","text":"Б. Павел Петрович Кирсанов"},{"id":"l3","text":"В. Марфа Игнатьевна Кабанова"},{"id":"l4","text":"Г. Наташа Ростова"},{"id":"l5","text":"Д. Соня Мармеладова"}],"rightCol":["1. «Гроза» (А.Н. Островский)","2. «Отцы и дети» (И.С. Тургенев)","3. «Человек в футляре» (А.П. Чехов)","4. «Война и мир» (Л.Н. Толстой)","5. «Преступление и наказание» (Ф.М. Достоевский)","6. «Обломов» (И.А. Гончаров)"],"correctMapping":{"l1":"3. «Человек в футляре» (А.П. Чехов)","l2":"2. «Отцы и дети» (И.С. Тургенев)","l3":"1. «Гроза» (А.Н. Островский)","l4":"4. «Война и мир» (Л.Н. Толстой)","l5":"5. «Преступление и наказание» (Ф.М. Достоевский)"},"points":2,"explanation":"Беликов — «Человек в футляре», Павел Петрович — «Отцы и дети», Кабаниха — «Гроза», Наташа Ростова — «Война и мир», Соня Мармеладова — «Преступление и наказание». Лишний пункт — роман И.А. Гончарова.","correctIdx":{"l1":2,"l2":1,"l3":0,"l4":3,"l5":4}},{"id":"q14","part":3,"displayNum":"14","type":"multiple-choice","instruction":"Выберите все верные утверждения о творчестве А.П. Чехова.","options":[{"id":"c1","text":"Чехов — мастер малой прозы: в его рассказах особую роль играет художественная деталь.","isCorrect":true},{"id":"c2","text":"«Маленькая трилогия» состоит из рассказов «Человек в футляре», «Крыжовник» и «О любви».","isCorrect":true},{"id":"c3","text":"Перу Чехова принадлежит роман «Обломов».","isCorrect":false},{"id":"c4","text":"Чехов — автор пьесы «Вишнёвый сад».","isCorrect":true},{"id":"c5","text":"Чехов был современником и другом А.С. Пушкина.","isCorrect":false}],"points":2,"explanation":"Верны первое, второе и четвёртое утверждения. «Обломов» написал И.А. Гончаров; Пушкин погиб в 1837 году, за двадцать три года до рождения Чехова."},{"id":"q15","part":3,"displayNum":"15","type":"matching","instruction":"По предложенным фрагментам определите названия стихотворений.","leftCol":[{"id":"l1","text":"А. «Люблю грозу в начале мая, / Когда весенний, первый гром...»"},{"id":"l2","text":"Б. «Сияла ночь. Луной был полон сад. Лежали / Лучи у наших ног...»"},{"id":"l3","text":"В. «Поэтом можешь ты не быть, / Но гражданином быть обязан»"},{"id":"l4","text":"Г. «Прощай, свободная стихия! / В последний раз передо мной...»"}],"rightCol":["1. «Весенняя гроза» (Ф.И. Тютчев)","2. «Пророк» (А.С. Пушкин)","3. «Сияла ночь. Луной был полон сад...» (А.А. Фет)","4. «Поэт и гражданин» (Н.А. Некрасов)","5. «К морю» (А.С. Пушкин)","6. «Несжатая полоса» (Н.А. Некрасов)"],"correctMapping":{"l1":"1. «Весенняя гроза» (Ф.И. Тютчев)","l2":"3. «Сияла ночь. Луной был полон сад...» (А.А. Фет)","l3":"4. «Поэт и гражданин» (Н.А. Некрасов)","l4":"5. «К морю» (А.С. Пушкин)"},"points":2,"explanation":"А — «Весенняя гроза» Ф.И. Тютчева, Б — «Сияла ночь...» А.А. Фета, В — «Поэт и гражданин» Н.А. Некрасова, Г — «К морю» А.С. Пушкина.","correctIdx":{"l1":0,"l2":2,"l3":3,"l4":4}},{"id":"q16","part":3,"displayNum":"16","type":"single-choice","instruction":"В каком из предложенных стихотворений прямо утверждается мысль о гражданском долге поэта?","options":[{"id":"r1","text":"«Поэт и гражданин» (Н.А. Некрасов)"},{"id":"r2","text":"«Шёпот, робкое дыханье...» (А.А. Фет)"},{"id":"r3","text":"«Есть в осени первоначальной...» (Ф.И. Тютчев)"},{"id":"r4","text":"«К морю» (А.С. Пушкин)"}],"correctOption":"r1","points":1,"explanation":"Формула «Поэтом можешь ты не быть, / Но гражданином быть обязан» из стихотворения Н.А. Некрасова «Поэт и гражданин» стала выражением идеи гражданского служения искусства."}]}}]};
+var VARIANTS = DATA.variants, CARDS = DATA.cards;
+
+var TEST_TIME = 45 * 60;      // 45 минут на вариант (регламент диагностики)
+var HINTS_TOTAL = 3;          // подсказок на попытку
+var K_SESSION = 'mcko.session.v2';
+var K_HISTORY = 'mcko.history.v2';
+var K_THEME = 'mcko.theme';
+
+/* ---------- хранилище (не падает, если localStorage недоступен) ---------- */
+var mem = {};
+var store = {
+  get: function (k, fb) {
+    try { var v = localStorage.getItem(k); if (v !== null) return JSON.parse(v); } catch (e) {}
+    return k in mem ? mem[k] : fb;
+  },
+  set: function (k, v) { mem[k] = v; try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+  del: function (k) { delete mem[k]; try { localStorage.removeItem(k); } catch (e) {} }
+};
+
+/* ---------- утилиты ---------- */
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+/** экранирует текст и превращает **жирный** в <strong> */
+function fmt(s) {
+  return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+function norm(s) {
+  return String(s == null ? '' : s).trim().toLowerCase()
+    .replace(/ё/g, 'е').replace(/[«»"'`.,;:!?]/g, '').replace(/\s+/g, ' ');
+}
+function cut(s, n) { s = String(s); return s.length > n ? s.slice(0, n - 1).trim() + '…' : s; }
+function mmss(sec) {
+  sec = Math.max(0, sec | 0);
+  return String((sec / 60) | 0).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0');
+}
+function plural(n, one, few, many) {
+  var a = Math.abs(n) % 100, b = a % 10;
+  if (a > 10 && a < 20) return many; if (b > 1 && b < 5) return few; if (b === 1) return one; return many;
+}
+function el(id) { return document.getElementById(id); }
+function icon(name, cls) {
+  return '<svg class="icon ' + (cls || '') + '" viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
+}
+
+var ICONS = {
+  feather: '<path d="M20.2 3.8c2.1 2.1 2.1 5.5 0 7.6L13 18.6l-7.6-7.6 7.1-7.2c2.1-2.1 5.5-2.1 7.7 0z"/><path d="M3 21l7-7"/><path d="M15.5 8.5L9 15"/>',
+  book: '<path d="M2 4h6a3 3 0 0 1 3 3v13a2.5 2.5 0 0 0-2.5-2.5H2z"/><path d="M22 4h-6a3 3 0 0 0-3 3v13a2.5 2.5 0 0 1 2.5-2.5H22z"/>',
+  cards: '<rect x="7" y="3" width="14" height="16" rx="2"/><path d="M17 21H5a2 2 0 0 1-2-2V7"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+  lock: '<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+  home: '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>',
+  x: '<path d="M18 6L6 18"/><path d="M6 6l12 12"/>',
+  right: '<path d="M9 5l7 7-7 7"/>',
+  left: '<path d="M15 5l-7 7 7 7"/>',
+  down: '<path d="M6 9l6 6 6-6"/>',
+  check: '<path d="M20 6L9 17l-5-5"/>',
+  alert: '<circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.2v.1"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.8v.1"/>',
+  award: '<circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-2.6L17 22l-1.5-8"/>',
+  star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+  list: '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3.5 6v.1"/><path d="M3.5 12v.1"/><path d="M3.5 18v.1"/>',
+  print: '<path d="M7 9V3h10v6"/><path d="M7 19H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="7" y="15" width="10" height="6"/>',
+  bulb: '<path d="M9.5 18h5"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.1 2.2h5c0-.8.4-1.6 1.1-2.2A6 6 0 0 0 12 3z"/>',
+  pen: '<path d="M14.5 3.5l6 6L9 21H3v-6z"/><path d="M12.5 5.5l6 6"/>',
+  shuffle: '<path d="M3 6h4l10 12h4"/><path d="M3 18h4L17 6h4"/><path d="M18 3l3 3-3 3"/><path d="M18 15l3 3-3 3"/>',
+  chart: '<path d="M12 2l9 6.5-3.4 10.5H6.4L3 8.5z"/><path d="M12 7l4.5 3.2-1.7 5.3H9.2L7.5 10.2z"/>',
+  sun: '<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2"/><path d="M12 19.8V22"/><path d="M2 12h2.2"/><path d="M19.8 12H22"/><path d="M4.9 4.9l1.6 1.6"/><path d="M17.5 17.5l1.6 1.6"/><path d="M19.1 4.9l-1.6 1.6"/><path d="M6.5 17.5l-1.6 1.6"/>',
+  moon: '<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/>',
+  back: '<path d="M20 12H4"/><path d="M10 6l-6 6 6 6"/>'
+};
+
+/* ---------- профиль умений: часть работы и тип задания ---------- */
+function getSkill(q) {
+  var t = q.type, ins = (q.instruction || '').toLowerCase();
+  if (q.part === 1) {
+    if (t === 'fill-blanks') return 'theory';
+    if (t === 'short-text') return 'details';
+    if (t === 'sequence' || t === 'matching') return 'plot';
+    return 'prose';
+  }
+  if (q.part === 2) {
+    if (t === 'fill-blanks') return 'theory';
+    if (t === 'short-text' || t === 'matching') return 'details';
+    return 'poetry';
+  }
+  return /стихотворен/.test(ins) ? 'poetry' : 'plot';
+}
+var SKILLS = [
+  ['theory', 'Теория литературы'],
+  ['prose', 'Работа с прозой'],
+  ['poetry', 'Лирика и стих'],
+  ['plot', 'Сюжет и герои'],
+  ['details', 'Детали и образы']
+];
+function getHint(q) {
+  if (q.aiHint) return q.aiHint;
+  var t = q.type, ins = (q.instruction || '').toLowerCase(), h = [];
+  if (t === 'fill-blanks') {
+    if (/размер/.test(ins)) h.push('Размер: расставьте ударения в первой строке и найдите повторяющуюся стопу — двусложную (ямб, хорей) или трёхсложную (дактиль, амфибрахий, анапест).');
+    if (/рифм/.test(ins)) h.push('Рифмовка: обозначьте рифмующиеся окончания строк буквами. АБАБ — перекрёстная, ААББ — смежная, АББА — опоясывающая.');
+    if (/при[её]м/.test(ins)) h.push('Приём: посмотрите, что повторяется в начале соседних строк.');
+    if (!h.length) h.push('Нужны термины теории литературы: род, жанр, направление или элемент композиции и сюжета. Вводите их в именительном падеже.');
+    return h.join(' ');
+  }
+  if (t === 'short-text') {
+    if (/выпишите/.test(ins)) return 'Найдите слово в тексте стихотворения и выпишите его в той форме, в какой оно стоит в строке.';
+    return 'Ответ — литературоведческий термин. Определите, что описано в задании: подробность, троп, стилистическая фигура или форма речи персонажа.';
+  }
+  if (t === 'true-false') return 'Сверяйте каждое утверждение с текстом фрагмента: верным считается только то, что прямо подтверждается текстом.';
+  if (t === 'sequence') return 'Вспомните сюжет целиком: с какого события начинается произведение, где кульминация и чем оно заканчивается.';
+  if (t === 'matching') {
+    if (/при[её]м|средств/.test(ins)) return 'Определите природу каждого примера: «как», «словно» — сравнение; повтор в начале строк — анафора; свойства живого у неживого — олицетворение; образное определение — эпитет.';
+    if (/стихотворен/.test(ins)) return 'Вспомните первые строки стихотворений и их авторов. В правом столбце есть лишние названия.';
+    if (/произведени/.test(ins)) return 'Вспомните, в каком произведении действует каждый герой. В правом столбце есть лишние названия.';
+    return 'Соотнесите цитату или факт с характером и судьбой героя. В правом столбце есть лишний вариант.';
+  }
+  if (t === 'multiple-choice') return (/два/.test(ins) ? 'Нужно выбрать ровно два ответа. ' : '') + 'Проверяйте каждое утверждение отдельно: неверные искажают факт сюжета или приписывают герою чужой поступок.';
+  if (t === 'single-choice') {
+    if (/тема/.test(ins)) return 'Определите, о чём стихотворение в целом, а не в одной строфе: тема должна охватывать весь текст.';
+    if (/стихотворени/.test(ins)) return 'Вспомните содержание каждого стихотворения из списка и найдите то, где мотив из вопроса главный.';
+    return 'Сверяйте утверждения с фрагментом: верное подтверждается текстом, неверные искажают отношения героев или события.';
+  }
+  return 'Внимательно перечитайте задание и фрагмент текста.';
+}
+
+var TYPE_LABEL = {
+  'fill-blanks': 'Пропуски', 'short-text': 'Краткий ответ', 'single-choice': 'Один ответ',
+  'multiple-choice': 'Несколько ответов', 'matching': 'Соответствие', 'sequence': 'Последовательность',
+  'true-false': 'Верно / неверно'
+};
+
+/* ================================================================
+   ПРОВЕРКА ОТВЕТОВ
+   Полный балл — за безошибочный ответ. Для заданий на 2 балла
+   одна ошибка стоит 1 балл (соответствие, множественный выбор,
+   верно/неверно, пропуски); последовательность — только целиком.
+   ================================================================ */
+function checkQuestion(q, ans) {
+  var max = q.points, earned = 0, mine = '', right = '', i, ok, err;
+
+  if (q.type === 'short-text') {
+    var val = (ans || '').trim();
+    mine = val; right = q.correct[0];
+    if (val && q.correct.some(function (a) { return norm(a) === norm(val); })) earned = max;
+
+  } else if (q.type === 'fill-blanks') {
+    var arr = ans || [], n = q.correctAnswers.length; ok = 0;
+    var mineParts = [], rightParts = [];
+    for (i = 0; i < n; i++) {
+      var v = (arr[i] || '').trim();
+      var hit = v && q.correctAnswers[i].some(function (a) { return norm(a) === norm(v); });
+      if (hit) ok++;
+      mineParts.push((i + 1) + ') ' + (v || '—'));
+      rightParts.push((i + 1) + ') ' + q.correctAnswers[i][0]);
+    }
+    earned = Math.round(max * ok / n);
+    mine = mineParts.join('   '); right = rightParts.join('   ');
+
+  } else if (q.type === 'single-choice') {
+    var pick = q.options.filter(function (o) { return o.id === ans; })[0];
+    var cor = q.options.filter(function (o) { return o.id === q.correctOption; })[0];
+    mine = pick ? optLabel(q, pick) : ''; right = cor ? optLabel(q, cor) : '';
+    if (ans === q.correctOption) earned = max;
+
+  } else if (q.type === 'multiple-choice') {
+    var sel = ans || {}, miss = 0, extra = 0, mineArr = [], rightArr = [];
+    q.options.forEach(function (o) {
+      var chosen = !!sel[o.id];
+      if (chosen) mineArr.push(optLabel(q, o));
+      if (o.isCorrect) rightArr.push(optLabel(q, o));
+      if (o.isCorrect && !chosen) miss++;
+      if (!o.isCorrect && chosen) extra++;
+    });
+    err = miss + extra;
+    earned = err === 0 ? max : (max === 2 && err === 1 ? 1 : 0);
+    mine = mineArr.join('\n'); right = rightArr.join('\n');
+
+  } else if (q.type === 'true-false') {
+    var a = ans || {}; ok = 0;
+    var m2 = [], r2 = [];
+    q.items.forEach(function (it, idx) {
+      if (a[it.id] === it.correct) ok++;
+      m2.push((idx + 1) + ') ' + (a[it.id] || '—'));
+      r2.push((idx + 1) + ') ' + it.correct);
+    });
+    err = q.items.length - ok;
+    earned = err === 0 ? max : (max === 2 && err === 1 ? 1 : 0);
+    mine = m2.join('   '); right = r2.join('   ');
+
+  } else if (q.type === 'matching') {
+    var am = ans || {}; ok = 0;
+    var m3 = [], r3 = [];
+    q.leftCol.forEach(function (l) {
+      var got = am[l.id];
+      var want = q.correctIdx[l.id];
+      if (got !== undefined && got !== '' && Number(got) === Number(want)) ok++;
+      var key = l.text.split('.')[0];
+      m3.push(key + ' → ' + (got === undefined || got === '' ? '—' : cut(q.rightCol[Number(got)], 60)));
+      r3.push(key + ' → ' + cut(q.rightCol[Number(want)], 60));
+    });
+    err = q.leftCol.length - ok;
+    earned = err === 0 ? max : (max === 2 && err === 1 ? 1 : 0);
+    mine = m3.join('\n'); right = r3.join('\n');
+
+  } else if (q.type === 'sequence') {
+    var s = (ans || '').trim();
+    mine = s; right = q.correctAnswer;
+    if (s === q.correctAnswer) earned = max;
+  }
+
+  if (!mine) mine = '— нет ответа —';
+  return { earned: earned, max: max, mine: mine, right: right, full: earned === max, zero: earned === 0 };
+}
+function optLabel(q, o) {
+  var i = q.options.indexOf(o);
+  return (i + 1) + ') ' + o.text.replace(/\*\*/g, '');
+}
+
+/* ---------- сводный подсчёт ---------- */
+function grade(variant, answers, timeSpent) {
+  var total = 0, max = 0, items = [];
+  var skills = {}; SKILLS.forEach(function (s) { skills[s[0]] = { e: 0, m: 0 }; });
+  variant.data.questions.forEach(function (q) {
+    var r = checkQuestion(q, answers[q.id]);
+    total += r.earned; max += r.max;
+    var sk = getSkill(q);
+    skills[sk].e += r.earned; skills[sk].m += r.max;
+    items.push({ q: q, r: r });
+  });
+  var pct = max ? Math.round(total / max * 100) : 0;
+  return {
+    variantId: variant.id, title: variant.title, total: total, max: max, pct: pct,
+    items: items, skills: skills, timeSpent: timeSpent, date: Date.now()
+  };
+}
+function levelOf(pct) {
+  if (pct >= 75) return 'Высокий уровень';
+  if (pct >= 50) return 'Средний уровень';
+  if (pct >= 30) return 'Уровень ниже среднего';
+  return 'Низкий уровень';
+}
+
+
+
+/* ================================================================
+   ИНТЕРФЕЙС
+   ================================================================ */
+ICONS.grip = '<circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/>';
+ICONS.up = '<path d="M6 15l6-6 6 6"/>';
+ICONS.eye = '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>';
+ICONS.grid = '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>';
+
+var BREAK_LEN = 5 * 60;                 // перерыв на разминку глаз
+var BREAK_AT = Math.floor(TEST_TIME / 2); // в середине работы
+function hasBreak(v) { return v && (v.category === 'real' || v.category === 'authored'); }
+
+var S = {
+  tab: 'tests', screen: 'home',
+  variant: null, answers: {}, hintsLeft: HINTS_TOTAL, usedHints: {},
+  timeLeft: TEST_TIME, blocked: false, results: null, filter: 'errors', confirming: false,
+  breakDone: false, inBreak: false, breakLeft: BREAK_LEN,
+  deck: 'terms', order: [], ci: 0, flip: false, shuffled: false
+};
+var app, timerId = null, hlRange = null, dragEl = null;
+
+var DECKS = [
+  ['terms', 'Термины', 'Определение', 'Термин'],
+  ['devices', 'Средства выразительности', 'Определение', 'Приём'],
+  ['characters', 'Герои', 'Характеристика', 'Герой'],
+  ['plot', 'Эпизоды', 'Что происходит', 'Эпизод'],
+  ['poems', 'Стихотворения', 'Строки', 'Автор и название']
+];
+var CAT = {
+  real: ['Официальный КИМ', 'amber'],
+  authored: ['Авторский вариант', 'accent'],
+  training: ['Тренировочный блок', '']
+};
+
+/* ---------- сессия и история ---------- */
+function saveSession() {
+  if (S.screen !== 'test' || !S.variant) return;
+  store.set(K_SESSION, {
+    variantId: S.variant.id, answers: S.answers, timeLeft: S.timeLeft, hintsLeft: S.hintsLeft,
+    usedHints: S.usedHints, blocked: S.blocked, breakDone: S.breakDone, inBreak: S.inBreak, breakLeft: S.breakLeft
+  });
+}
+function clearSession() { store.del(K_SESSION); }
+function getSession() {
+  var s = store.get(K_SESSION, null);
+  if (!s || !s.variantId) return null;
+  var v = VARIANTS.filter(function (x) { return x.id === s.variantId; })[0];
+  return v ? { s: s, v: v } : null;
+}
+function history() { var h = store.get(K_HISTORY, []); return Array.isArray(h) ? h : []; }
+function pushHistory(r) {
+  var h = history();
+  h.unshift({ variantId: r.variantId, title: r.title, pct: r.pct, total: r.total, max: r.max, time: r.timeSpent, date: r.date, hints: r.hints || 0 });
+  store.set(K_HISTORY, h.slice(0, 50));
+}
+function bestFor(id) { var b = null; history().forEach(function (a) { if (a.variantId === id && (!b || a.pct > b.pct)) b = a; }); return b; }
+function attemptsFor(id) { return history().filter(function (a) { return a.variantId === id; }).length; }
+function maxOf(v) { return v.data.questions.reduce(function (a, q) { return a + q.points; }, 0); }
+function qById(id) { return S.variant.data.questions.filter(function (q) { return q.id === id; })[0]; }
+
+/* ================================================================
+   ЭКРАНЫ
+   ================================================================ */
+function render() {
+  if (S.tab === 'cards') app.innerHTML = viewCards();
+  else if (S.screen === 'test') app.innerHTML = S.blocked ? viewBlocked() : viewTest();
+  else if (S.screen === 'results') app.innerHTML = viewResults();
+  else app.innerHTML = viewHome();
+  document.querySelectorAll('.seg-btn').forEach(function (b) {
+    b.setAttribute('aria-selected', b.dataset.tab === S.tab ? 'true' : 'false');
+  });
+  if (S.screen === 'test' && !S.blocked && S.tab === 'tests') { refreshNav(); if (S.inBreak) setBreakUI(true); }
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- главная ---------------- */
+function viewHome() {
+  var ses = getSession(), h = history();
+  var nq = VARIANTS.reduce(function (a, v) { return a + v.data.questions.length; }, 0);
+  var nc = Object.keys(CARDS).reduce(function (a, k) { return a + CARDS[k].length; }, 0);
+  var out = '<div class="wrap fade">';
+  out += '<header class="intro"><div><div class="eyebrow">Подготовка к диагностике МЦКО</div>' +
+    '<h1>Литература, 10 класс</h1>' +
+    '<p>Варианты в формате диагностики с автоматической проверкой, разбором ответов и карточками для повторения.</p></div>' +
+    '<div class="stats"><div class="stat"><b>' + VARIANTS.length + '</b><span>вариантов</span></div>' +
+    '<div class="stat"><b>' + nq + '</b><span>заданий</span></div>' +
+    '<div class="stat"><b>' + nc + '</b><span>карточек</span></div></div></header>';
+
+  if (ses) {
+    out += '<div class="resume no-print">' + icon('clock') + '<p><b>Незавершённая работа:</b> ' + esc(ses.v.title) +
+      (ses.s.blocked ? ' — попытка аннулирована.' : ' — осталось ' + mmss(ses.s.timeLeft) + '.') + '</p>' +
+      (ses.s.blocked ? '' : '<button class="btn" data-act="resume">Продолжить</button>') +
+      '<button class="btn secondary" data-act="discard">Удалить</button></div>';
+  }
+
+  [['real', 'Реальные варианты', 'КИМ прошлых лет'],
+   ['authored', 'Авторские варианты', 'полный формат'],
+   ['training', 'Тренировочные блоки', '4–6 заданий']].forEach(function (g) {
+    var list = VARIANTS.filter(function (v) { return v.category === g[0]; });
+    if (!list.length) return;
+    out += '<section class="sec"><div class="sec-head"><h2>' + g[1] + '</h2><span class="note">' + g[2] + '</span></div>' +
+      '<div class="grid">' + list.map(cardFor).join('') + '</div>';
+    if (g[0] === 'authored') {
+      out += '<div class="notice" style="margin-top:12px">' + icon('info') + '<div>Составлены по образцу реальных КИМ: структура, число заданий и баллы совпадают с диагностикой, тексты сверены с публикациями. Официальными вариантами не являются.</div></div>';
+    }
+    out += '</section>';
+  });
+
+  out += '<section class="sec"><div class="sec-head"><h2>История попыток</h2>' +
+    (h.length ? '<button class="btn ghost" data-act="clear-history">Очистить</button>' : '<span class="note">хранится в этом браузере</span>') + '</div>';
+  if (!h.length) out += '<div class="panel empty">Результаты появятся после первой завершённой работы.</div>';
+  else {
+    out += '<div class="panel table-wrap"><table class="hist"><thead><tr><th>Дата</th><th>Вариант</th><th>Баллы</th><th>Результат</th><th>Время</th><th>Подсказки</th></tr></thead><tbody>';
+    h.slice(0, 10).forEach(function (a) {
+      var d = new Date(a.date);
+      out += '<tr><td>' + d.toLocaleDateString('ru-RU') + ', ' + d.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }) + '</td>' +
+        '<td>' + esc(a.title) + '</td><td>' + a.total + ' из ' + a.max + '</td><td class="pct">' + a.pct + '%</td><td class="mono">' + mmss(a.time) + '</td><td>' + (a.hints != null ? a.hints : '—') + '</td></tr>';
+    });
+    out += '</tbody></table></div>';
+  }
+  out += '</section>';
+
+  out += '<section class="sec"><div class="notice">' + icon('info') + '<div><b>Регламент.</b> На вариант даётся 45 минут; в полных вариантах в середине работы — перерыв 5 минут на разминку глаз, время работы на перерыв останавливается. ' +
+    'Полный балл — за безошибочный ответ; в заданиях на 2 балла одна ошибка в соответствии, множественном выборе или «верно/неверно» стоит 1 балл; последовательность засчитывается только целиком. ' +
+    'Переключение вкладки или сворачивание окна во время работы аннулирует попытку.</div></div></section>';
+  return out + '</div>';
+}
+function cardFor(v) {
+  var b = bestFor(v.id), n = attemptsFor(v.id), c = CAT[v.category] || CAT.training, qn = v.data.questions.length, mx = maxOf(v);
+  return '<button class="vcard" data-act="start" data-id="' + esc(v.id) + '">' +
+    '<div class="vcard-top"><span class="chip ' + c[1] + '">' + c[0] + '</span>' + icon('right') + '</div>' +
+    '<h3>' + esc(v.title) + '</h3><div class="works">' + esc(v.subtitle.replace(/^\(|\)$/g, '')) + '</div>' +
+    '<div class="vcard-foot"><span>' + qn + ' ' + plural(qn, 'задание', 'задания', 'заданий') + ' · ' + mx + ' ' + plural(mx, 'балл', 'балла', 'баллов') + '</span>' +
+    (b ? '<span class="best"><span class="bar"><i style="width:' + b.pct + '%"></i></span>' + b.pct + '%</span>'
+       : '<span>' + (n ? n + ' ' + plural(n, 'попытка', 'попытки', 'попыток') : 'не начат') + '</span>') +
+    '</div></button>';
+}
+
+/* ---------------- работа ---------------- */
+function viewBlocked() {
+  return '<div class="panel blocked fade">' + icon('lock') + '<h1>Попытка аннулирована</h1>' +
+    '<p>Во время работы была переключена вкладка или свёрнуто окно. Результат этого варианта не засчитывается.</p>' +
+    '<button class="btn" data-act="home">На главную</button></div>';
+}
+function viewTest() {
+  var v = S.variant, d = v.data;
+  var p1 = d.questions.filter(function (q) { return q.part === 1 || !q.part; });
+  var p2 = d.questions.filter(function (q) { return q.part === 2; });
+  var p3 = d.questions.filter(function (q) { return q.part === 3; });
+  var out = '<div class="test fade" id="test-root"><div class="content">';
+  out += '<div class="panel test-head"><div><h1>' + esc(v.title) + '</h1><div class="works">' + esc(v.subtitle.replace(/^\(|\)$/g, '')) + '</div></div>' +
+    '<button class="btn ghost no-print" data-act="home" title="Работа сохранится, её можно продолжить">' + icon('x') + '<span>Выйти</span></button></div>';
+  out += '<div class="panel break">' + icon('eye') + '<h2>Перерыв для разминки глаз</h2>' +
+    '<p>Время работы остановлено, задания скрыты. Отведите взгляд от экрана. Работа продолжится автоматически.</p>' +
+    '<div class="timer" id="break-n">' + mmss(S.breakLeft) + '</div>' +
+    '<button class="btn secondary" data-act="end-break">Вернуться к работе</button></div>';
+  if (d.text1) out += passage('Текст 1', d.text1, false) + p1.map(qHtml).join('');
+  if (d.text2) out += passage('Текст 2', d.text2, true) + p2.map(qHtml).join('');
+  if (p3.length) out += '<div class="part-label">Часть 3 · обобщение</div>' + p3.map(qHtml).join('');
+  out += '<div class="panel finish no-print" id="finish-zone">' + finishZone() + '</div>';
+  out += '</div>' + sidebar() + '</div>';
+  return out;
+}
+function passage(label, t, verse) {
+  return '<div class="part-label">' + label + '</div><article class="panel passage"><h2>' + esc(t.title) + '</h2>' +
+    '<div class="passage-text' + (verse ? ' verse' : '') + '">' + esc(t.content) + '</div>' +
+    '<div class="passage-hint no-print">' + icon('pen') + 'Выделите фрагмент текста, чтобы отметить его маркером</div></article>';
+}
+function sidebar() {
+  var qs = S.variant.data.questions;
+  return '<aside class="side no-print" id="side">' +
+    '<div class="panel side-card"><div class="timer-row"><div><div class="timer' + (S.timeLeft < 300 ? ' warn' : '') + '" id="time-n">' + mmss(S.timeLeft) + '</div>' +
+    '<div class="timer-cap">осталось из ' + (TEST_TIME / 60) + ' мин</div></div>' +
+    '<button class="btn secondary map-toggle" data-act="toggle-map">' + icon('grid') + '<span id="done-n2">0/' + qs.length + '</span></button></div>' +
+    '<div class="progress"><i id="prog" style="width:0"></i></div>' +
+    '<div class="side-meta"><span>Отвечено <b id="done-n">0</b> из ' + qs.length + '</span><span>Подсказки: <b id="hints-n">' + S.hintsLeft + '</b></span></div>' +
+    '<div class="qmap" id="qmap">' + qs.map(function (q) {
+      return '<button data-act="goto" data-id="' + esc(q.id) + '" title="Задание ' + esc(q.displayNum) + '">' + esc(q.displayNum) + '</button>';
+    }).join('') + '</div></div>' +
+    '<div class="panel side-card extra"><button class="btn block" data-act="ask-finish">Завершить работу</button>' +
+    '<div class="side-note" style="margin-top:12px">' + icon('lock') + '<span>Переключение вкладки или сворачивание окна аннулирует попытку.</span></div>' +
+    (hasBreak(S.variant) ? '<div class="side-note" style="margin-top:8px">' + icon('eye') + '<span>Перерыв 5 минут — на середине работы.</span></div>' : '') +
+    '</div></aside>';
+}
+function finishZone() {
+  if (!S.confirming) return '<button class="btn block" data-act="ask-finish">Завершить работу и проверить</button>';
+  var left = S.variant.data.questions.filter(function (q) { return !answered(q); }).length;
+  return '<div class="confirm">' + icon('alert') + '<p>' + (left ? 'Без ответа ' + left + ' ' + plural(left, 'задание', 'задания', 'заданий') + '. Завершить работу?' : 'Все задания заполнены. Завершить работу?') + '</p>' +
+    '<button class="btn" data-act="finish">Завершить</button><button class="btn secondary" data-act="cancel-finish">Продолжить работу</button></div>';
+}
+function answered(q) {
+  var a = S.answers[q.id];
+  if (a == null) return false;
+  if (typeof a === 'string') return a.trim() !== '';
+  if (Array.isArray(a)) return a.some(function (x) { return x && String(x).trim(); });
+  return Object.keys(a).some(function (k) { return a[k] === true || (typeof a[k] === 'string' && a[k] !== ''); });
+}
+function refreshNav(qid) {
+  var qs = S.variant.data.questions, done = 0;
+  qs.forEach(function (q) {
+    var ok = answered(q); if (ok) done++;
+    if (qid && q.id !== qid) return;
+    var b = document.querySelector('#qmap [data-id="' + q.id + '"]'); if (b) b.classList.toggle('done', ok);
+    var art = el('q-' + q.id); if (art) art.classList.toggle('done', ok);
+  });
+  var n = el('done-n'); if (n) n.textContent = done;
+  var n2 = el('done-n2'); if (n2) n2.textContent = done + '/' + qs.length;
+  var p = el('prog'); if (p) p.style.width = (done / qs.length * 100) + '%';
+}
+
+function qHtml(q) {
+  var used = S.usedHints[q.id];
+  var out = '<article class="panel q" id="q-' + esc(q.id) + '"><div class="q-head"><span class="q-num">' + esc(q.displayNum) + '</span>' +
+    '<div class="q-title">' + fmt(q.instruction) + '</div><span class="chip">' + q.points + ' ' + plural(q.points, 'балл', 'балла', 'балла') + '</span></div>';
+  out += qBody(q);
+  if (used) out += hintBox(used);
+  else if (S.hintsLeft > 0) out += '<div class="q-foot no-print"><button class="hint-btn" data-act="hint" data-id="' + esc(q.id) + '">' + icon('bulb') + 'Подсказка</button></div>';
+  return out + '</article>';
+}
+function hintBox(t) { return '<div class="hint">' + icon('bulb') + '<div><b>Подсказка</b>' + esc(t) + '</div></div>'; }
+
+function qBody(q) {
+  var a = S.answers[q.id], out = '';
+  switch (q.type) {
+    case 'fill-blanks': {
+      var arr = a || [];
+      out = '<div class="cloze">';
+      q.textParts.forEach(function (part, i) {
+        out += esc(part);
+        if (i < q.textParts.length - 1) out += '<input class="blank" type="text" autocomplete="off" data-a="fb" data-q="' + esc(q.id) + '" data-i="' + i + '" value="' + esc(arr[i] || '') + '" aria-label="Пропуск ' + (i + 1) + '">';
+      });
+      return out + '</div>';
+    }
+    case 'short-text':
+      return '<input class="field" type="text" autocomplete="off" placeholder="Ответ" data-a="st" data-q="' + esc(q.id) + '" value="' + esc(a || '') + '">';
+    case 'single-choice':
+      return '<div class="opts">' + q.options.map(function (o) {
+        return '<label class="opt"><input type="radio" name="' + esc(q.id) + '" data-a="sc" data-q="' + esc(q.id) + '" value="' + esc(o.id) + '"' + (a === o.id ? ' checked' : '') + '><span>' + fmt(o.text) + '</span></label>';
+      }).join('') + '</div>';
+    case 'multiple-choice':
+      return '<div class="opts">' + q.options.map(function (o) {
+        return '<label class="opt"><input type="checkbox" data-a="mc" data-q="' + esc(q.id) + '" data-opt="' + esc(o.id) + '"' + (a && a[o.id] ? ' checked' : '') + '><span>' + fmt(o.text) + '</span></label>';
+      }).join('') + '</div>';
+    case 'true-false':
+      return '<div class="tf">' + q.items.map(function (it) {
+        var cur = a && a[it.id];
+        return '<div class="tf-row"><span>' + fmt(it.text) + '</span><div class="toggle" role="group">' + ['Верно', 'Неверно'].map(function (val) {
+          return '<button type="button" data-a="tf" data-q="' + esc(q.id) + '" data-item="' + esc(it.id) + '" data-val="' + val + '" aria-pressed="' + (cur === val) + '">' + val + '</button>';
+        }).join('') + '</div></div>';
+      }).join('') + '</div>';
+    case 'sequence': {
+      var order = validPerm(a, q.items.length) ? a.split('').map(Number) : q.items.map(function (_, i) { return i + 1; });
+      out = '<ol class="seq-list" data-seq="' + esc(q.id) + '">' + order.map(function (n) {
+        return '<li class="seq-item" draggable="true" data-n="' + n + '">' + icon('grip', 'grip') + '<span class="n">' + n + '</span><span class="t">' + fmt(q.items[n - 1].text) + '</span>' +
+          '<span class="seq-move"><button type="button" data-act="seq-move" data-q="' + esc(q.id) + '" data-n="' + n + '" data-dir="-1" aria-label="Выше">' + icon('up') + '</button>' +
+          '<button type="button" data-act="seq-move" data-q="' + esc(q.id) + '" data-n="' + n + '" data-dir="1" aria-label="Ниже">' + icon('down') + '</button></span></li>';
+      }).join('') + '</ol>';
+      return out + '<div class="seq-answer"><input class="field" inputmode="numeric" maxlength="' + q.items.length + '" placeholder="' + '·'.repeat(q.items.length) + '" data-a="seq" data-q="' + esc(q.id) + '" value="' + esc(a || '') + '" aria-label="Ответ цифрами">' +
+        '<span>Расставьте события по порядку перетаскиванием или стрелками — ответ запишется цифрами. Можно ввести цифры вручную.</span></div>';
+    }
+    case 'matching':
+      out = '<div class="match">' + q.leftCol.map(function (l) {
+        var cur = a && a[l.id] !== undefined ? String(a[l.id]) : '';
+        return '<div class="match-row"><div class="left">' + fmt(l.text) + '</div><select class="field" data-a="mt" data-q="' + esc(q.id) + '" data-left="' + esc(l.id) + '" aria-label="Соответствие: ' + esc(l.text) + '">' +
+          '<option value=""' + (cur === '' ? ' selected' : '') + '>Выберите вариант</option>' +
+          q.rightCol.map(function (r, i) { return '<option value="' + i + '"' + (cur === String(i) ? ' selected' : '') + '>' + esc(cut(r, 72)) + '</option>'; }).join('') + '</select></div>';
+      }).join('') + '</div>';
+      return out + '<div class="ref"><h4>Варианты для соответствия</h4><ol>' + q.rightCol.map(function (r) { return '<li>' + fmt(r) + '</li>'; }).join('') + '</ol></div>';
+  }
+  return '';
+}
+function validPerm(s, n) {
+  if (typeof s !== 'string' || s.length !== n) return false;
+  var seen = {};
+  for (var i = 0; i < n; i++) { var d = +s[i]; if (!(d >= 1 && d <= n) || seen[d]) return false; seen[d] = 1; }
+  return true;
+}
+
+/* ---------------- результаты ---------------- */
+function viewResults() {
+  var R = S.results, full = 0, part = 0, zero = 0;
+  R.items.forEach(function (it) { if (it.r.full) full++; else if (it.r.zero) zero++; else part++; });
+  var shown = S.filter === 'errors' ? R.items.filter(function (it) { return !it.r.full; }) : R.items;
+  var out = '<div class="wrap fade">';
+  out += '<div class="res-top"><div class="panel score"><div class="faint">' + esc(R.title) + ' · ' + new Date(R.date).toLocaleDateString('ru-RU') + '</div>' +
+    '<div class="score-num"><b>' + R.total + '</b><span>из ' + R.max + '</span></div>' +
+    '<div class="score-chips"><span class="chip accent">' + R.pct + '%</span><span class="chip">' + levelOf(R.pct) + '</span>' +
+    '<span class="chip">' + icon('clock') + mmss(R.timeSpent) + '</span>' + (R.hints ? '<span class="chip">Подсказки: ' + R.hints + '</span>' : '') + '</div>' +
+    '<div class="tally"><div class="t-ok"><b>' + full + '</b><span>верно</span></div><div class="t-part"><b>' + part + '</b><span>частично</span></div>' +
+    '<div class="t-zero"><b>' + zero + '</b><span>без баллов</span></div></div></div>';
+  out += '<div class="panel skills"><h2>Профиль умений</h2>' + SKILLS.map(function (s) {
+    var v = R.skills[s[0]], p = v.m ? Math.round(v.e / v.m * 100) : null;
+    return '<div class="skill"><div class="name">' + s[1] + '<small>' + (v.m ? v.e + ' из ' + v.m + ' ' + plural(v.m, 'балла', 'баллов', 'баллов') : 'заданий нет') + '</small></div>' +
+      '<span class="bar"><i style="width:' + (p || 0) + '%;background:' + (p === null ? 'transparent' : p >= 75 ? 'var(--ok)' : p >= 50 ? 'var(--accent)' : 'var(--bad)') + '"></i></span>' +
+      '<span class="val">' + (p === null ? '—' : p + '%') + '</span></div>';
+  }).join('') + '</div></div>';
+
+  out += '<div class="panel rmap"><h2>Задания</h2><div class="rmap-grid">' + R.items.map(function (it) {
+    var c = it.r.full ? 'full' : (it.r.zero ? 'zero' : 'part');
+    return '<button class="' + c + '" data-act="goto-rev" data-id="' + esc(it.q.id) + '" title="' + it.r.earned + ' из ' + it.r.max + '">' + esc(it.q.displayNum) + '</button>';
+  }).join('') + '</div><div class="legend"><span><i style="background:var(--ok)"></i>полный балл</span><span><i style="background:var(--amber)"></i>часть баллов</span><span><i style="background:var(--bad)"></i>без баллов</span></div></div>';
+
+  out += '<div class="review-bar"><h2>Разбор</h2><div class="tools no-print"><div class="seg">' +
+    '<button class="seg-btn" data-act="filter" data-f="errors" aria-selected="' + (S.filter === 'errors') + '">Ошибки · ' + (part + zero) + '</button>' +
+    '<button class="seg-btn" data-act="filter" data-f="all" aria-selected="' + (S.filter === 'all') + '">Все · ' + R.items.length + '</button></div>' +
+    '<button class="btn secondary" data-act="print">' + icon('print') + 'Печать</button></div></div>';
+
+  out += '<div class="review">';
+  if (!shown.length) out += '<div class="panel empty">Ошибок нет: все задания выполнены на полный балл.</div>';
+  shown.forEach(function (it) {
+    var c = it.r.full ? 'ok' : (it.r.zero ? '' : 'part');
+    var chip = it.r.full ? 'ok' : (it.r.zero ? 'bad' : 'warn');
+    out += '<article class="panel rev" id="rev-' + esc(it.q.id) + '"><div class="rev-head"><span class="q-num">' + esc(it.q.displayNum) + '</span>' +
+      '<div class="t">' + fmt(it.q.instruction) + '</div><span class="chip ' + chip + '">' + it.r.earned + ' из ' + it.r.max + '</span></div>' +
+      '<div class="cmp' + (it.r.full ? ' single' : '') + '"><div class="mine ' + c + '"><span class="lbl">Ваш ответ</span>' + esc(it.r.mine) + '</div>' +
+      (it.r.full ? '' : '<div class="right"><span class="lbl">Верный ответ</span>' + esc(it.r.right) + '</div>') + '</div>' +
+      (it.q.explanation ? '<details class="expl"' + (it.r.full ? '' : ' open') + '><summary>Объяснение ' + icon('down') + '</summary><div class="expl-body">' + fmt(it.q.explanation) + '</div></details>' : '') +
+      '</article>';
+  });
+  out += '</div><div class="actions no-print"><button class="btn" data-act="retry" data-id="' + esc(R.variantId) + '">Пройти вариант ещё раз</button>' +
+    '<button class="btn secondary" data-act="home">На главную</button></div></div>';
+  return out;
+}
+
+/* ---------------- карточки ---------------- */
+function deckMeta(id) { return DECKS.filter(function (d) { return d[0] === id; })[0]; }
+function ensureOrder() {
+  var list = CARDS[S.deck] || [];
+  if (S.order.length !== list.length) { S.order = list.map(function (_, i) { return i; }); if (S.shuffled) shuffleOrder(); S.ci = 0; S.flip = false; }
+}
+function shuffleOrder() { for (var i = S.order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = S.order[i]; S.order[i] = S.order[j]; S.order[j] = t; } }
+function viewCards() {
+  ensureOrder();
+  var list = CARDS[S.deck] || [], m = deckMeta(S.deck), c = list[S.order[S.ci]] || { front: '', back: '' };
+  var out = '<div class="narrow fade"><header class="intro" style="grid-template-columns:1fr"><div><div class="eyebrow">Повторение</div><h1>Карточки</h1>' +
+    '<p>Нажмите на карточку или пробел, чтобы увидеть ответ. Стрелки ← → листают колоду.</p></div></header>';
+  out += '<div class="decks no-print">' + DECKS.map(function (d) {
+    return '<button data-act="deck" data-deck="' + d[0] + '" aria-pressed="' + (d[0] === S.deck) + '">' + d[1] + '<span>' + (CARDS[d[0]] || []).length + '</span></button>';
+  }).join('') + '</div>';
+  out += '<div class="scene"><div class="flashcard' + (S.flip ? ' flipped' : '') + '" id="flashcard" data-act="flip" role="button" tabindex="0" aria-label="Перевернуть карточку">' +
+    '<div class="face' + (c.front.length > 170 ? ' long' : '') + '"><div class="cap">' + m[2] + '</div><p>' + esc(c.front) + '</p><div class="tip">нажмите, чтобы увидеть ответ</div></div>' +
+    '<div class="face back' + (c.back.length > 170 ? ' long' : '') + '"><div class="cap">' + m[3] + '</div><p>' + esc(c.back) + '</p><div class="tip">' + m[1] + '</div></div></div></div>';
+  out += '<div class="deck-progress"><div class="progress"><i style="width:' + ((S.ci + 1) / Math.max(list.length, 1) * 100) + '%"></i></div></div>';
+  out += '<div class="deck-nav no-print"><button class="btn secondary" data-act="prev">' + icon('left') + 'Назад</button>' +
+    '<span class="counter">' + (S.ci + 1) + ' / ' + list.length + '</span>' +
+    '<button class="btn secondary" data-act="next">Дальше' + icon('right') + '</button>' +
+    '<button class="btn ghost" data-act="shuffle">' + icon('shuffle') + (S.shuffled ? 'По порядку' : 'Перемешать') + '</button></div>';
+  return out + '</div>';
+}
+
+/* ================================================================
+   ДЕЙСТВИЯ
+   ================================================================ */
+function startTest(id, restore) {
+  var v = VARIANTS.filter(function (x) { return x.id === id; })[0];
+  if (!v) return;
+  restore = restore || {};
+  S.variant = v;
+  S.answers = restore.answers || {};
+  S.hintsLeft = restore.hintsLeft != null ? restore.hintsLeft : HINTS_TOTAL;
+  S.usedHints = restore.usedHints || {};
+  S.timeLeft = restore.timeLeft != null ? restore.timeLeft : TEST_TIME;
+  S.blocked = !!restore.blocked;
+  S.breakDone = !!restore.breakDone;
+  S.inBreak = !!restore.inBreak;
+  S.breakLeft = restore.breakLeft != null ? restore.breakLeft : BREAK_LEN;
+  S.confirming = false; S.results = null; S.screen = 'test'; S.tab = 'tests';
+  render(); saveSession();
+  if (!S.blocked) { startTimer(); attachProctor(); }
+}
+function finishTest() {
+  stopTimer(); detachProctor();
+  S.inBreak = false;
+  S.results = grade(S.variant, S.answers, TEST_TIME - S.timeLeft);
+  S.results.hints = HINTS_TOTAL - S.hintsLeft;
+  pushHistory(S.results); clearSession();
+  S.filter = 'errors'; S.screen = 'results'; render();
+}
+function goHome() {
+  stopTimer(); detachProctor();
+  if (S.screen === 'test' && !S.blocked) saveSession();
+  S.screen = 'home'; S.confirming = false; render();
+}
+
+/* таймер и перерыв */
+function startTimer() {
+  stopTimer();
+  timerId = setInterval(function () {
+    if (S.screen !== 'test' || S.blocked || S.tab !== 'tests') return;
+    if (S.inBreak) {
+      S.breakLeft--;
+      var bn = el('break-n'); if (bn) bn.textContent = mmss(S.breakLeft);
+      if (S.breakLeft % 5 === 0) saveSession();
+      if (S.breakLeft <= 0) endBreak();
+      return;
+    }
+    S.timeLeft--;
+    var n = el('time-n');
+    if (n) { n.textContent = mmss(S.timeLeft); if (S.timeLeft < 300) n.classList.add('warn'); }
+    if (hasBreak(S.variant) && !S.breakDone && S.timeLeft <= BREAK_AT && S.timeLeft > 0) startBreak();
+    if (S.timeLeft % 5 === 0) saveSession();
+    if (S.timeLeft <= 0) finishTest();
+  }, 1000);
+}
+function stopTimer() { if (timerId) { clearInterval(timerId); timerId = null; } }
+function setBreakUI(on) { var r = el('test-root'); if (r) r.classList.toggle('on-break', on); var bn = el('break-n'); if (bn) bn.textContent = mmss(S.breakLeft); }
+function startBreak() { S.inBreak = true; S.breakDone = true; S.breakLeft = BREAK_LEN; hideHl(); setBreakUI(true); saveSession(); window.scrollTo(0, 0); }
+function endBreak() { S.inBreak = false; setBreakUI(false); saveSession(); }
+
+/* прокторинг */
+var proctorOn = false, proctorSince = 0;
+function violate() {
+  if (!proctorOn || S.screen !== 'test' || S.blocked) return;
+  if (Date.now() - proctorSince < 1200) return;
+  S.blocked = true; S.inBreak = false;
+  stopTimer(); detachProctor(); saveSession(); render();
+}
+function onVis() { if (document.hidden) violate(); }
+function attachProctor() {
+  if (proctorOn) return;
+  proctorOn = true; proctorSince = Date.now();
+  window.addEventListener('blur', violate); document.addEventListener('visibilitychange', onVis);
+}
+function detachProctor() {
+  if (!proctorOn) return;
+  proctorOn = false;
+  window.removeEventListener('blur', violate); document.removeEventListener('visibilitychange', onVis);
+}
+
+/* маркер */
+function hideHl() { var b = el('hl-btn'); if (b) b.remove(); hlRange = null; }
+function onMouseUp(e) {
+  if (S.screen !== 'test' || S.tab !== 'tests' || S.blocked || S.inBreak) return;
+  if (e.target.closest && e.target.closest('#hl-btn')) return;
+  if (e.target.tagName === 'MARK') { unwrap(e.target); hideHl(); return; }
+  var sel = window.getSelection();
+  if (!sel || sel.isCollapsed || !sel.toString().trim()) { hideHl(); return; }
+  var range = sel.getRangeAt(0), node = range.commonAncestorContainer;
+  var host = (node.nodeType === 1 ? node : node.parentNode).closest('.passage-text');
+  if (!host) { hideHl(); return; }
+  var r = range.getBoundingClientRect();
+  hideHl(); hlRange = range.cloneRange();
+  var btn = document.createElement('button');
+  btn.id = 'hl-btn'; btn.type = 'button'; btn.innerHTML = icon('pen') + 'Выделить';
+  btn.style.left = (r.left + r.width / 2 + window.scrollX) + 'px';
+  btn.style.top = (r.top + window.scrollY - 8) + 'px';
+  btn.addEventListener('mousedown', function (ev) { ev.preventDefault(); });
+  btn.addEventListener('click', applyHl);
+  document.body.appendChild(btn);
+}
+function applyHl() {
+  if (!hlRange) return;
+  try { var m = document.createElement('mark'); m.title = 'Нажмите, чтобы снять выделение'; hlRange.surroundContents(m); }
+  catch (err) { try { var f = hlRange.extractContents(), m2 = document.createElement('mark'); m2.appendChild(f); hlRange.insertNode(m2); } catch (e2) {} }
+  window.getSelection().removeAllRanges(); hideHl();
+}
+function unwrap(mark) { var p = mark.parentNode; while (mark.firstChild) p.insertBefore(mark.firstChild, mark); p.removeChild(mark); p.normalize(); }
+
+/* ответы */
+function setAnswer(q, val) { S.answers[q] = val; saveSession(); refreshNav(q); }
+function seqFromDom(qid) {
+  var list = document.querySelector('[data-seq="' + qid + '"]'); if (!list) return;
+  var v = Array.prototype.map.call(list.children, function (li) { return li.dataset.n; }).join('');
+  var inp = document.querySelector('[data-a="seq"][data-q="' + qid + '"]'); if (inp) inp.value = v;
+  setAnswer(qid, v);
+}
+function seqToDom(qid, s) {
+  var list = document.querySelector('[data-seq="' + qid + '"]'); if (!list) return;
+  s.split('').forEach(function (n) { var li = list.querySelector('[data-n="' + n + '"]'); if (li) list.appendChild(li); });
+}
+function onInput(e) {
+  var t = e.target, a = t.dataset && t.dataset.a;
+  if (!a) return;
+  var q = t.dataset.q;
+  if (a === 'st') setAnswer(q, t.value);
+  else if (a === 'fb') { var arr = Array.isArray(S.answers[q]) ? S.answers[q].slice() : []; arr[+t.dataset.i] = t.value; setAnswer(q, arr); }
+  else if (a === 'seq') {
+    t.value = t.value.replace(/\D/g, '');
+    var qq = qById(q);
+    if (qq && validPerm(t.value, qq.items.length)) seqToDom(q, t.value);
+    setAnswer(q, t.value);
+  }
+  else if (a === 'sc') setAnswer(q, t.value);
+  else if (a === 'mc') { var o = Object.assign({}, S.answers[q] || {}); o[t.dataset.opt] = t.checked; setAnswer(q, o); }
+  else if (a === 'mt') { var m = Object.assign({}, S.answers[q] || {}); m[t.dataset.left] = t.value; setAnswer(q, m); }
+}
+
+/* перетаскивание в последовательности */
+function onDragStart(e) { var li = e.target.closest && e.target.closest('.seq-item'); if (!li) return; dragEl = li; li.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; try { e.dataTransfer.setData('text/plain', li.dataset.n); } catch (x) {} }
+function onDragOver(e) {
+  if (!dragEl) return;
+  var li = e.target.closest && e.target.closest('.seq-item');
+  if (!li || li === dragEl || li.parentNode !== dragEl.parentNode) return;
+  e.preventDefault();
+  var r = li.getBoundingClientRect();
+  li.parentNode.insertBefore(dragEl, e.clientY < r.top + r.height / 2 ? li : li.nextSibling);
+}
+function onDragEnd() { if (!dragEl) return; var qid = dragEl.parentNode.dataset.seq; dragEl.classList.remove('dragging'); dragEl = null; seqFromDom(qid); }
+
+/* клики */
+function onClick(e) {
+  var tf = e.target.closest('[data-a="tf"]');
+  if (tf) {
+    var q = tf.dataset.q, o = Object.assign({}, S.answers[q] || {});
+    o[tf.dataset.item] = tf.dataset.val; setAnswer(q, o);
+    tf.parentNode.querySelectorAll('button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === tf)); });
+    return;
+  }
+  var node = e.target.closest('[data-act]');
+  if (!node) return;
+  var act = node.dataset.act;
+  if (act === 'tab') {
+    S.tab = node.dataset.tab;
+    if (S.tab === 'cards') { stopTimer(); detachProctor(); }
+    else if (S.screen === 'test' && !S.blocked) { startTimer(); attachProctor(); }
+    render();
+  }
+  else if (act === 'theme') toggleTheme();
+  else if (act === 'start' || act === 'retry') startTest(node.dataset.id);
+  else if (act === 'resume') { var s = getSession(); if (s) startTest(s.v.id, s.s); }
+  else if (act === 'discard') { clearSession(); render(); }
+  else if (act === 'clear-history') { store.del(K_HISTORY); render(); }
+  else if (act === 'home') goHome();
+  else if (act === 'ask-finish') { S.confirming = true; var z = el('finish-zone'); z.innerHTML = finishZone(); z.scrollIntoView({ block: 'center' }); }
+  else if (act === 'cancel-finish') { S.confirming = false; el('finish-zone').innerHTML = finishZone(); }
+  else if (act === 'finish') finishTest();
+  else if (act === 'end-break') endBreak();
+  else if (act === 'goto') { var t = el('q-' + node.dataset.id); if (t) t.scrollIntoView({ block: 'start' }); el('side').classList.remove('open'); }
+  else if (act === 'toggle-map') el('side').classList.toggle('open');
+  else if (act === 'goto-rev') {
+    var id = node.dataset.id;
+    if (!el('rev-' + id)) { S.filter = 'all'; render(); }
+    var rv = el('rev-' + id); if (rv) rv.scrollIntoView({ block: 'start' });
+  }
+  else if (act === 'filter') { S.filter = node.dataset.f; render(); }
+  else if (act === 'print') window.print();
+  else if (act === 'hint') useHint(node.dataset.id);
+  else if (act === 'seq-move') {
+    var list = document.querySelector('[data-seq="' + node.dataset.q + '"]'), li = list && list.querySelector('[data-n="' + node.dataset.n + '"]');
+    if (!li) return;
+    if (+node.dataset.dir < 0 && li.previousElementSibling) list.insertBefore(li, li.previousElementSibling);
+    else if (+node.dataset.dir > 0 && li.nextElementSibling) list.insertBefore(li.nextElementSibling, li);
+    seqFromDom(node.dataset.q);
+  }
+  else if (act === 'deck') { S.deck = node.dataset.deck; S.order = []; S.ci = 0; S.flip = false; render(); }
+  else if (act === 'flip') { S.flip = !S.flip; el('flashcard').classList.toggle('flipped', S.flip); }
+  else if (act === 'next') stepCard(1);
+  else if (act === 'prev') stepCard(-1);
+  else if (act === 'shuffle') { S.shuffled = !S.shuffled; if (S.shuffled) shuffleOrder(); else S.order.sort(function (a, b) { return a - b; }); S.ci = 0; S.flip = false; render(); }
+}
+function useHint(qid) {
+  if (S.hintsLeft <= 0 || S.usedHints[qid]) return;
+  var q = qById(qid); if (!q) return;
+  S.hintsLeft--; S.usedHints[qid] = getHint(q); saveSession();
+  var n = el('hints-n'); if (n) n.textContent = S.hintsLeft;
+  var art = el('q-' + qid);
+  if (art) { var f = art.querySelector('.q-foot'); var box = document.createElement('div'); box.innerHTML = hintBox(S.usedHints[qid]); if (f) f.replaceWith(box.firstChild); }
+  if (S.hintsLeft === 0) document.querySelectorAll('.q-foot').forEach(function (b) { b.remove(); });
+}
+function stepCard(d) { var list = CARDS[S.deck] || []; if (!list.length) return; S.ci = (S.ci + d + list.length) % list.length; S.flip = false; render(); }
+
+/* тема */
+function curTheme() { return document.documentElement.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); }
+function toggleTheme() { var t = curTheme() === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', t); store.set(K_THEME, t); syncThemeBtn(); }
+function syncThemeBtn() { var b = el('theme-btn'); if (!b) return; var d = curTheme() === 'dark'; b.innerHTML = icon(d ? 'sun' : 'moon'); b.setAttribute('aria-label', d ? 'Светлая тема' : 'Тёмная тема'); }
+
+/* ================================================================
+   ЗАПУСК
+   ================================================================ */
+function init() {
+  app = el('app');
+  var saved = store.get(K_THEME, null);
+  if (saved === 'dark' || saved === 'light') document.documentElement.setAttribute('data-theme', saved);
+  el('topbar').innerHTML = '<div class="brand"><span class="brand-mark">' + icon('feather') + '</span><span class="brand-name">МЦКО · Литература<small>10 класс</small></span></div>' +
+    '<div class="seg" role="tablist"><button class="seg-btn" role="tab" data-act="tab" data-tab="tests" aria-selected="true">' + icon('book') + '<span class="lbl">Варианты</span></button>' +
+    '<button class="seg-btn" role="tab" data-act="tab" data-tab="cards" aria-selected="false">' + icon('cards') + '<span class="lbl">Карточки</span></button></div>' +
+    '<button class="icon-btn" id="theme-btn" data-act="theme"></button>';
+  syncThemeBtn();
+  document.addEventListener('click', onClick);
+  document.addEventListener('input', onInput);
+  document.addEventListener('change', onInput);
+  document.addEventListener('mouseup', onMouseUp);
+  document.addEventListener('dragstart', onDragStart);
+  document.addEventListener('dragover', onDragOver);
+  document.addEventListener('dragend', onDragEnd);
+  document.addEventListener('keydown', function (e) {
+    if (S.tab !== 'cards') return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); stepCard(1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); stepCard(-1); }
+    else if (e.key === ' ' || e.key === 'Enter') {
+      var ae = document.activeElement;
+      if (ae && ae.tagName === 'BUTTON' && ae.id !== 'flashcard') return;
+      e.preventDefault(); S.flip = !S.flip; var f = el('flashcard'); if (f) f.classList.toggle('flipped', S.flip);
+    }
+  });
+  window.addEventListener('beforeprint', function () { document.querySelectorAll('details.expl').forEach(function (d) { d.open = true; }); });
+  window.addEventListener('beforeunload', function () { if (S.screen === 'test') saveSession(); });
+  render();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+
+</script>
+</body>
+</html>
